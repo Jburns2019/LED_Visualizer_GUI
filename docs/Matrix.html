@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>Matrix API documentation</title>
+<meta name="description" content="Author: John Burns …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Matrix</code></h1>
+</header>
+<section id="section-intro">
+<p>Author: John Burns</p>
+<p>Last Modified: 5/15/2021</p>
+<p>OSU Email Address: burnsjo@oregonstate.edu</p>
+<p>Course Number ECE 342</p>
+<p>Project: LED Visualizer Group 2</p>
+<p>Due Date: 5/28/2021</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Author: John Burns\n
+Last Modified: 5/15/2021\n
+OSU Email Address: burnsjo@oregonstate.edu\n
+Course Number ECE 342\n
+Project: LED Visualizer Group 2\n
+Due Date: 5/28/2021
+&#34;&#34;&#34;
+
+class LEDMatrix:
+    &#34;&#34;&#34;
+    The definition for how a LED matrix can be defined.\n
+        Primarily as a x, y, z list of colors. This particular implementation also has a limit on
+        how high the value can be set.
+    There are two modes to call this class&#39;s constructor.\n
+        The default LEDMatrix() with default size of 5x5x7 with a limit on the value of 63.
+        The full parameter list can also be entered thanks to *args.
+        LEDMatrix(x (int), y (int), z (int), lim (int)) can be called to make a custom matrix.\n
+    parameters: *args, either 4 parameters long or 0 parameters long. Otherwise nothing is set.
+    &#34;&#34;&#34;
+    def __init__(self, *args):
+        #full parameter list
+        if len(args) == 4:
+            #Parse expected parameters.
+            x, y, z, lim = args
+            #Make a matrix of the requested side.
+            self.matrix = [[[0 for k in range(z)] for j in range(y)] for i in range(x)]
+            #set values.
+            self.x = x
+            self.y = y
+            self.z = z
+            self.lim = lim
+        #Default parameter list.
+        elif len(args) == 0:
+            #Make a matrix of the default 5x5x7 size.
+            self.matrix = [[[0 for k in range(7)] for j in range(5)] for i in range(5)]
+            #Set the values to the default values.
+            self.x = 5
+            self.y = 5
+            self.z = 7
+            self.lim = 63
+    
+    def getxlen(self):
+        &#34;&#34;&#34;method for getting the x value.&#34;&#34;&#34;
+        return self.x
+    
+    def getylen(self):
+        &#34;&#34;&#34;method for getting the y value.&#34;&#34;&#34;
+        return self.y
+
+    def getzlen(self):
+        &#34;&#34;&#34;method for getting the z value.&#34;&#34;&#34;
+        return self.z
+    
+    def getlim(self):
+        &#34;&#34;&#34;method for getting the lim value.&#34;&#34;&#34;
+        return self.lim
+
+    def getMatrix(self):
+        &#34;&#34;&#34;method for getting the matrix.&#34;&#34;&#34;
+        return self.matrix
+
+    def setVal(self, x: int, y: int, z: int, val: int):
+        &#34;&#34;&#34;
+        Sets a value in the matrix.\n
+        Note: implementing the color of a bulb is implented in getRowValue.\n
+        parameters: x, the x value on the layer (int).\n
+                    y, the y value on the layer (int).
+                    z, the layer (int).
+                    val, the value of the corresponding bulb (int).\n
+        returns: wasProb, whether the value was valid (boolean).
+        &#34;&#34;&#34;
+        #Allow for problem detection.
+        wasProb = False
+
+        #Try to prevent users from entering bogus values.
+        if val &lt;= self.lim and val &gt;= 0:
+            self.matrix[x][y][z] = val
+        else:
+            wasProb = True
+        
+        return wasProb
+    
+    def getVal(self, x: int, y: int, z: int):
+        &#34;&#34;&#34;
+        Retrieve te value from the matrix.\n
+        paramaters: x, the x value on the layer (int).\n
+                    y, the y value on the layer (int).
+                    z, the layer (int).\n
+        returns: value, the value stored in the matrix at that location.
+        &#34;&#34;&#34;
+        return self.matrix[x][y][z]
+
+    def clearVal(self, x: int, y: int, z: int):
+        &#34;&#34;&#34;
+        Provide a way to clear the value. Same as setting the value to 0.\n
+        paramaters: x, the x value on the layer (int).\n
+                    y, the y value on the layer (int).
+                    z, the layer (int).
+        &#34;&#34;&#34;
+        self.matrix[x][y][z] = 0
+    
+    def clearMatrix(self):
+        &#34;&#34;&#34;
+        Provide a way to clear the entire matrix. Rebuilds the matrix by setting every value to 0.
+        &#34;&#34;&#34;
+        self.matrix = [[[0 for k in range(self.z)] for j in range(self.y)] for i in range(self.x)]
+    
+    def toString(self):
+        &#34;&#34;&#34;
+        Provide a way to get an intelligent string of the matrix.\n
+            Matrices are printed as layers from bottom to top.\n
+        returns: outStr, the string to be used (string).
+        &#34;&#34;&#34;
+        outStr = &#34;&#34;
+        for z in range(self.z):
+            for y in range(self.y):
+                for x in range (self.x):
+                    outStr += str(self.matrix[x][y][z])
+                    #Don&#39;t put strings at the end of printout.
+                    if x &lt; self.x - 1:
+                        outStr += &#34;   &#34;
+                #Put a new line at the end of every row.
+                outStr += &#34;\n&#34;
+            #Put a new line at the end of every layer except the last one.
+            if z &lt; self.z - 1:
+                outStr += &#34;\n&#34;
+        return outStr
+
+    def __str__(self):
+        &#34;&#34;&#34;Overwriting the default address print statement.&#34;&#34;&#34;
+        return self.toString()
+
+    #Written by Henry Gillespie for getting his binary numbers.
+    def getRowValue(self, row: int, color: int):
+        &#34;&#34;&#34;This function calculates the values that will fill the header file. This creates the correct value (in binary) to push to the LEDs\n
+        Each value is multiplied by a factor of 2^(3i) to set it to a different value. The color variable allows the writeFile function to\n
+        get switch between / and % from the values that are in the Colors dictionary in the main visualizer.py file.&#34;&#34;&#34;
+        layer = int(row / self.y)
+        horizontalRow = row % self.y
+        value = 0
+        
+        for i in range(self.x):
+            if color == 0:
+                value += int(self.matrix[horizontalRow][i][layer] / 8) * 2**(3*i)
+            else:
+                value += (self.matrix[horizontalRow][i][layer] % 8) * 2**(3*i)
+        return value</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="Matrix.LEDMatrix"><code class="flex name class">
+<span>class <span class="ident">LEDMatrix</span></span>
+<span>(</span><span>*args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The definition for how a LED matrix can be defined.</p>
+<pre><code>Primarily as a x, y, z list of colors. This particular implementation also has a limit on
+how high the value can be set.
+</code></pre>
+<p>There are two modes to call this class's constructor.</p>
+<pre><code>The default LEDMatrix() with default size of 5x5x7 with a limit on the value of 63.
+The full parameter list can also be entered thanks to *args.
+LEDMatrix(x (int), y (int), z (int), lim (int)) can be called to make a custom matrix.
+</code></pre>
+<p>parameters: *args, either 4 parameters long or 0 parameters long. Otherwise nothing is set.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LEDMatrix:
+    &#34;&#34;&#34;
+    The definition for how a LED matrix can be defined.\n
+        Primarily as a x, y, z list of colors. This particular implementation also has a limit on
+        how high the value can be set.
+    There are two modes to call this class&#39;s constructor.\n
+        The default LEDMatrix() with default size of 5x5x7 with a limit on the value of 63.
+        The full parameter list can also be entered thanks to *args.
+        LEDMatrix(x (int), y (int), z (int), lim (int)) can be called to make a custom matrix.\n
+    parameters: *args, either 4 parameters long or 0 parameters long. Otherwise nothing is set.
+    &#34;&#34;&#34;
+    def __init__(self, *args):
+        #full parameter list
+        if len(args) == 4:
+            #Parse expected parameters.
+            x, y, z, lim = args
+            #Make a matrix of the requested side.
+            self.matrix = [[[0 for k in range(z)] for j in range(y)] for i in range(x)]
+            #set values.
+            self.x = x
+            self.y = y
+            self.z = z
+            self.lim = lim
+        #Default parameter list.
+        elif len(args) == 0:
+            #Make a matrix of the default 5x5x7 size.
+            self.matrix = [[[0 for k in range(7)] for j in range(5)] for i in range(5)]
+            #Set the values to the default values.
+            self.x = 5
+            self.y = 5
+            self.z = 7
+            self.lim = 63
+    
+    def getxlen(self):
+        &#34;&#34;&#34;method for getting the x value.&#34;&#34;&#34;
+        return self.x
+    
+    def getylen(self):
+        &#34;&#34;&#34;method for getting the y value.&#34;&#34;&#34;
+        return self.y
+
+    def getzlen(self):
+        &#34;&#34;&#34;method for getting the z value.&#34;&#34;&#34;
+        return self.z
+    
+    def getlim(self):
+        &#34;&#34;&#34;method for getting the lim value.&#34;&#34;&#34;
+        return self.lim
+
+    def getMatrix(self):
+        &#34;&#34;&#34;method for getting the matrix.&#34;&#34;&#34;
+        return self.matrix
+
+    def setVal(self, x: int, y: int, z: int, val: int):
+        &#34;&#34;&#34;
+        Sets a value in the matrix.\n
+        Note: implementing the color of a bulb is implented in getRowValue.\n
+        parameters: x, the x value on the layer (int).\n
+                    y, the y value on the layer (int).
+                    z, the layer (int).
+                    val, the value of the corresponding bulb (int).\n
+        returns: wasProb, whether the value was valid (boolean).
+        &#34;&#34;&#34;
+        #Allow for problem detection.
+        wasProb = False
+
+        #Try to prevent users from entering bogus values.
+        if val &lt;= self.lim and val &gt;= 0:
+            self.matrix[x][y][z] = val
+        else:
+            wasProb = True
+        
+        return wasProb
+    
+    def getVal(self, x: int, y: int, z: int):
+        &#34;&#34;&#34;
+        Retrieve te value from the matrix.\n
+        paramaters: x, the x value on the layer (int).\n
+                    y, the y value on the layer (int).
+                    z, the layer (int).\n
+        returns: value, the value stored in the matrix at that location.
+        &#34;&#34;&#34;
+        return self.matrix[x][y][z]
+
+    def clearVal(self, x: int, y: int, z: int):
+        &#34;&#34;&#34;
+        Provide a way to clear the value. Same as setting the value to 0.\n
+        paramaters: x, the x value on the layer (int).\n
+                    y, the y value on the layer (int).
+                    z, the layer (int).
+        &#34;&#34;&#34;
+        self.matrix[x][y][z] = 0
+    
+    def clearMatrix(self):
+        &#34;&#34;&#34;
+        Provide a way to clear the entire matrix. Rebuilds the matrix by setting every value to 0.
+        &#34;&#34;&#34;
+        self.matrix = [[[0 for k in range(self.z)] for j in range(self.y)] for i in range(self.x)]
+    
+    def toString(self):
+        &#34;&#34;&#34;
+        Provide a way to get an intelligent string of the matrix.\n
+            Matrices are printed as layers from bottom to top.\n
+        returns: outStr, the string to be used (string).
+        &#34;&#34;&#34;
+        outStr = &#34;&#34;
+        for z in range(self.z):
+            for y in range(self.y):
+                for x in range (self.x):
+                    outStr += str(self.matrix[x][y][z])
+                    #Don&#39;t put strings at the end of printout.
+                    if x &lt; self.x - 1:
+                        outStr += &#34;   &#34;
+                #Put a new line at the end of every row.
+                outStr += &#34;\n&#34;
+            #Put a new line at the end of every layer except the last one.
+            if z &lt; self.z - 1:
+                outStr += &#34;\n&#34;
+        return outStr
+
+    def __str__(self):
+        &#34;&#34;&#34;Overwriting the default address print statement.&#34;&#34;&#34;
+        return self.toString()
+
+    #Written by Henry Gillespie for getting his binary numbers.
+    def getRowValue(self, row: int, color: int):
+        &#34;&#34;&#34;This function calculates the values that will fill the header file. This creates the correct value (in binary) to push to the LEDs\n
+        Each value is multiplied by a factor of 2^(3i) to set it to a different value. The color variable allows the writeFile function to\n
+        get switch between / and % from the values that are in the Colors dictionary in the main visualizer.py file.&#34;&#34;&#34;
+        layer = int(row / self.y)
+        horizontalRow = row % self.y
+        value = 0
+        
+        for i in range(self.x):
+            if color == 0:
+                value += int(self.matrix[horizontalRow][i][layer] / 8) * 2**(3*i)
+            else:
+                value += (self.matrix[horizontalRow][i][layer] % 8) * 2**(3*i)
+        return value</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="Matrix.LEDMatrix.clearMatrix"><code class="name flex">
+<span>def <span class="ident">clearMatrix</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provide a way to clear the entire matrix. Rebuilds the matrix by setting every value to 0.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clearMatrix(self):
+    &#34;&#34;&#34;
+    Provide a way to clear the entire matrix. Rebuilds the matrix by setting every value to 0.
+    &#34;&#34;&#34;
+    self.matrix = [[[0 for k in range(self.z)] for j in range(self.y)] for i in range(self.x)]</code></pre>
+</details>
+</dd>
+<dt id="Matrix.LEDMatrix.clearVal"><code class="name flex">
+<span>def <span class="ident">clearVal</span></span>(<span>self, x: int, y: int, z: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provide a way to clear the value. Same as setting the value to 0.</p>
+<p>paramaters: x, the x value on the layer (int).</p>
+<pre><code>        y, the y value on the layer (int).
+        z, the layer (int).
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clearVal(self, x: int, y: int, z: int):
+    &#34;&#34;&#34;
+    Provide a way to clear the value. Same as setting the value to 0.\n
+    paramaters: x, the x value on the layer (int).\n
+                y, the y value on the layer (int).
+                z, the layer (int).
+    &#34;&#34;&#34;
+    self.matrix[x][y][z] = 0</code></pre>
+</details>
+</dd>
+<dt id="Matrix.LEDMatrix.getMatrix"><code class="name flex">
+<span>def <span class="ident">getMatrix</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>method for getting the matrix.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getMatrix(self):
+    &#34;&#34;&#34;method for getting the matrix.&#34;&#34;&#34;
+    return self.matrix</code></pre>
+</details>
+</dd>
+<dt id="Matrix.LEDMatrix.getRowValue"><code class="name flex">
+<span>def <span class="ident">getRowValue</span></span>(<span>self, row: int, color: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function calculates the values that will fill the header file. This creates the correct value (in binary) to push to the LEDs</p>
+<p>Each value is multiplied by a factor of 2^(3i) to set it to a different value. The color variable allows the writeFile function to</p>
+<p>get switch between / and % from the values that are in the Colors dictionary in the main visualizer.py file.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getRowValue(self, row: int, color: int):
+    &#34;&#34;&#34;This function calculates the values that will fill the header file. This creates the correct value (in binary) to push to the LEDs\n
+    Each value is multiplied by a factor of 2^(3i) to set it to a different value. The color variable allows the writeFile function to\n
+    get switch between / and % from the values that are in the Colors dictionary in the main visualizer.py file.&#34;&#34;&#34;
+    layer = int(row / self.y)
+    horizontalRow = row % self.y
+    value = 0
+    
+    for i in range(self.x):
+        if color == 0:
+            value += int(self.matrix[horizontalRow][i][layer] / 8) * 2**(3*i)
+        else:
+            value += (self.matrix[horizontalRow][i][layer] % 8) * 2**(3*i)
+    return value</code></pre>
+</details>
+</dd>
+<dt id="Matrix.LEDMatrix.getVal"><code class="name flex">
+<span>def <span class="ident">getVal</span></span>(<span>self, x: int, y: int, z: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve te value from the matrix.</p>
+<p>paramaters: x, the x value on the layer (int).</p>
+<pre><code>        y, the y value on the layer (int).
+        z, the layer (int).
+</code></pre>
+<p>returns: value, the value stored in the matrix at that location.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getVal(self, x: int, y: int, z: int):
+    &#34;&#34;&#34;
+    Retrieve te value from the matrix.\n
+    paramaters: x, the x value on the layer (int).\n
+                y, the y value on the layer (int).
+                z, the layer (int).\n
+    returns: value, the value stored in the matrix at that location.
+    &#34;&#34;&#34;
+    return self.matrix[x][y][z]</code></pre>
+</details>
+</dd>
+<dt id="Matrix.LEDMatrix.getlim"><code class="name flex">
+<span>def <span class="ident">getlim</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>method for getting the lim value.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getlim(self):
+    &#34;&#34;&#34;method for getting the lim value.&#34;&#34;&#34;
+    return self.lim</code></pre>
+</details>
+</dd>
+<dt id="Matrix.LEDMatrix.getxlen"><code class="name flex">
+<span>def <span class="ident">getxlen</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>method for getting the x value.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getxlen(self):
+    &#34;&#34;&#34;method for getting the x value.&#34;&#34;&#34;
+    return self.x</code></pre>
+</details>
+</dd>
+<dt id="Matrix.LEDMatrix.getylen"><code class="name flex">
+<span>def <span class="ident">getylen</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>method for getting the y value.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getylen(self):
+    &#34;&#34;&#34;method for getting the y value.&#34;&#34;&#34;
+    return self.y</code></pre>
+</details>
+</dd>
+<dt id="Matrix.LEDMatrix.getzlen"><code class="name flex">
+<span>def <span class="ident">getzlen</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>method for getting the z value.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getzlen(self):
+    &#34;&#34;&#34;method for getting the z value.&#34;&#34;&#34;
+    return self.z</code></pre>
+</details>
+</dd>
+<dt id="Matrix.LEDMatrix.setVal"><code class="name flex">
+<span>def <span class="ident">setVal</span></span>(<span>self, x: int, y: int, z: int, val: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets a value in the matrix.</p>
+<p>Note: implementing the color of a bulb is implented in getRowValue.</p>
+<p>parameters: x, the x value on the layer (int).</p>
+<pre><code>        y, the y value on the layer (int).
+        z, the layer (int).
+        val, the value of the corresponding bulb (int).
+</code></pre>
+<p>returns: wasProb, whether the value was valid (boolean).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setVal(self, x: int, y: int, z: int, val: int):
+    &#34;&#34;&#34;
+    Sets a value in the matrix.\n
+    Note: implementing the color of a bulb is implented in getRowValue.\n
+    parameters: x, the x value on the layer (int).\n
+                y, the y value on the layer (int).
+                z, the layer (int).
+                val, the value of the corresponding bulb (int).\n
+    returns: wasProb, whether the value was valid (boolean).
+    &#34;&#34;&#34;
+    #Allow for problem detection.
+    wasProb = False
+
+    #Try to prevent users from entering bogus values.
+    if val &lt;= self.lim and val &gt;= 0:
+        self.matrix[x][y][z] = val
+    else:
+        wasProb = True
+    
+    return wasProb</code></pre>
+</details>
+</dd>
+<dt id="Matrix.LEDMatrix.toString"><code class="name flex">
+<span>def <span class="ident">toString</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provide a way to get an intelligent string of the matrix.</p>
+<pre><code>Matrices are printed as layers from bottom to top.
+</code></pre>
+<p>returns: outStr, the string to be used (string).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def toString(self):
+    &#34;&#34;&#34;
+    Provide a way to get an intelligent string of the matrix.\n
+        Matrices are printed as layers from bottom to top.\n
+    returns: outStr, the string to be used (string).
+    &#34;&#34;&#34;
+    outStr = &#34;&#34;
+    for z in range(self.z):
+        for y in range(self.y):
+            for x in range (self.x):
+                outStr += str(self.matrix[x][y][z])
+                #Don&#39;t put strings at the end of printout.
+                if x &lt; self.x - 1:
+                    outStr += &#34;   &#34;
+            #Put a new line at the end of every row.
+            outStr += &#34;\n&#34;
+        #Put a new line at the end of every layer except the last one.
+        if z &lt; self.z - 1:
+            outStr += &#34;\n&#34;
+    return outStr</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="Matrix.LEDMatrix" href="#Matrix.LEDMatrix">LEDMatrix</a></code></h4>
+<ul class="two-column">
+<li><code><a title="Matrix.LEDMatrix.clearMatrix" href="#Matrix.LEDMatrix.clearMatrix">clearMatrix</a></code></li>
+<li><code><a title="Matrix.LEDMatrix.clearVal" href="#Matrix.LEDMatrix.clearVal">clearVal</a></code></li>
+<li><code><a title="Matrix.LEDMatrix.getMatrix" href="#Matrix.LEDMatrix.getMatrix">getMatrix</a></code></li>
+<li><code><a title="Matrix.LEDMatrix.getRowValue" href="#Matrix.LEDMatrix.getRowValue">getRowValue</a></code></li>
+<li><code><a title="Matrix.LEDMatrix.getVal" href="#Matrix.LEDMatrix.getVal">getVal</a></code></li>
+<li><code><a title="Matrix.LEDMatrix.getlim" href="#Matrix.LEDMatrix.getlim">getlim</a></code></li>
+<li><code><a title="Matrix.LEDMatrix.getxlen" href="#Matrix.LEDMatrix.getxlen">getxlen</a></code></li>
+<li><code><a title="Matrix.LEDMatrix.getylen" href="#Matrix.LEDMatrix.getylen">getylen</a></code></li>
+<li><code><a title="Matrix.LEDMatrix.getzlen" href="#Matrix.LEDMatrix.getzlen">getzlen</a></code></li>
+<li><code><a title="Matrix.LEDMatrix.setVal" href="#Matrix.LEDMatrix.setVal">setVal</a></code></li>
+<li><code><a title="Matrix.LEDMatrix.toString" href="#Matrix.LEDMatrix.toString">toString</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

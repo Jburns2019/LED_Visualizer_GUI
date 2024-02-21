@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>CheckMarkList API documentation</title>
+<meta name="description" content="Author: John Burns …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>CheckMarkList</code></h1>
+</header>
+<section id="section-intro">
+<p>Author: John Burns</p>
+<p>Last Modified: 5/25/2021</p>
+<p>OSU Email Address: burnsjo@oregonstate.edu</p>
+<p>Course Number ECE 342</p>
+<p>Project: LED Visualizer Group 2</p>
+<p>Due Date: 5/28/2021</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Author: John Burns\n
+Last Modified: 5/25/2021\n
+OSU Email Address: burnsjo@oregonstate.edu\n
+Course Number ECE 342\n
+Project: LED Visualizer Group 2\n
+Due Date: 5/28/2021
+&#34;&#34;&#34;
+
+from tkinter import *
+from Colors import *
+
+class CheckButtonBar:
+   &#34;&#34;&#34;
+   Setup the check buttons for setting colors. The panel of checks is colored and named based on the colors the checks represent.\n
+   If no color is selected the listOfButtons will become disabled.\n
+   parameters: master, the frame the color pannel will be put on (Frame)\n
+               listOfButtons, a list of the dependent buttons (list(Button))\n
+               text, the label used for the color selection (string).\n
+               var, the variable that is changed with clicks (IntVar())\n
+               command, the command to be used (function handle)\n
+               commandlen, the number of commands available (int)\n
+               txtLst, a list of txt for each command (list(string))\n
+               badVal, the off value to avoid (int)
+   &#34;&#34;&#34;
+   def __init__(self, master: Frame, listOfButtons: list, text: str, var: IntVar, command=None, commandlen = 0, txtLst = [], badVal = -1):
+      #Make parameters accessible within the class.
+      self.var = var
+      self.command = command
+      self.commandlen = commandlen
+      self.txtLst = txtLst
+
+      #prepare a list.
+      self.checkList = []
+      self.dependentButtons = listOfButtons
+
+      #Make a labelFrame for describing the pannel.
+      self.frame = LabelFrame(master, text=text)
+      self.frame.pack()
+
+      self.badVal = badVal
+
+      #Setup the disabling and reenabling the dependant buttons.
+      self.setupChecks()
+
+   def setupChecks(self):
+      &#34;&#34;&#34;
+      Make a list of CheckButtons that are off at -1 and on at the given numeric value.\n
+         the variable, makes it so that the value will be accessible elsewhere without having to check it (auto updates).
+      &#34;&#34;&#34;
+      #Make a list of CheckButtons and put them in the named pannel.
+      #The length of the for loop is dependent on if there are commands expected.
+      length = len(list(Colors.values())) if not self.command else self.commandlen
+
+      for i in range(length):
+         #Handle the case of black colors.
+         fg = &#34;white&#34; if list(HexColors.keys())[i] == &#34;000000&#34; else &#34;black&#34;
+         selectColor = &#34;black&#34; if list(HexColors.keys())[i] == &#34;000000&#34; else &#34;white&#34;
+         
+         #If there is a given command, then it isn&#39;t a colored list.
+         if not self.command:
+            #Creates a button, with the interest of allowing black to be seen.
+            self.checkList.append(Checkbutton(
+               self.frame,
+               text = list(Colors.keys())[i],
+               onvalue = list(Colors.values())[i],
+               offvalue = -1,
+               variable = self.var,
+               command = self.activateSelection,
+               activebackground=&#39;#&#39; + str(list(HexColors.keys())[i]),
+               activeforeground=&#34;black&#34;,
+               fg = fg,
+               selectcolor = selectColor,
+               width = 11,
+               bg = &#39;#&#39; + str(list(HexColors.keys())[i]),
+               anchor = W
+            ))
+         else:
+            #Make a generic check button list.
+            self.checkList.append(Checkbutton(
+               self.frame,
+               text = self.txtLst[i],
+               onvalue = i,
+               offvalue = -1,
+               variable = self.var,
+               command = self.activateCommand
+            ))
+         #Pack the buttons as they come in.
+         self.checkList[i].pack(anchor = W)
+
+   def activateCommand(self):
+      &#34;&#34;&#34;
+      Define the functionality for selecting a box.\n
+         If a box is enabled use the command, otherwise do nothing.\n
+         If an unreachable badValue is given, then command is executed every time the check is toggled.
+      &#34;&#34;&#34;
+      if self.var.get() != self.badVal:
+         self.command()
+
+   def activateSelection(self):
+      &#34;&#34;&#34;
+      Define the functionality for selecting a box.\n
+         If a box is selected then the dependent buttons\n
+         are enabled, otherwise the dependent buttons are disabled.
+      &#34;&#34;&#34;
+      if self.var.get() != -1:
+         for i in range(len(self.dependentButtons[0])):
+            self.dependentButtons[0][i][&#39;state&#39;] = NORMAL
+      
+      elif self.var.get() == -1:         
+         for i in range(len(self.dependentButtons[0])):
+            self.dependentButtons[0][i][&#39;state&#39;] = DISABLED</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="CheckMarkList.CheckButtonBar"><code class="flex name class">
+<span>class <span class="ident">CheckButtonBar</span></span>
+<span>(</span><span>master: tkinter.Frame, listOfButtons: list, text: str, var: tkinter.IntVar, command=None, commandlen=0, txtLst=[], badVal=-1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Setup the check buttons for setting colors. The panel of checks is colored and named based on the colors the checks represent.</p>
+<p>If no color is selected the listOfButtons will become disabled.</p>
+<p>parameters: master, the frame the color pannel will be put on (Frame)</p>
+<pre><code>        listOfButtons, a list of the dependent buttons (list(Button))
+
+        text, the label used for the color selection (string).
+
+        var, the variable that is changed with clicks (IntVar())
+
+        command, the command to be used (function handle)
+
+        commandlen, the number of commands available (int)
+
+        txtLst, a list of txt for each command (list(string))
+
+        badVal, the off value to avoid (int)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CheckButtonBar:
+   &#34;&#34;&#34;
+   Setup the check buttons for setting colors. The panel of checks is colored and named based on the colors the checks represent.\n
+   If no color is selected the listOfButtons will become disabled.\n
+   parameters: master, the frame the color pannel will be put on (Frame)\n
+               listOfButtons, a list of the dependent buttons (list(Button))\n
+               text, the label used for the color selection (string).\n
+               var, the variable that is changed with clicks (IntVar())\n
+               command, the command to be used (function handle)\n
+               commandlen, the number of commands available (int)\n
+               txtLst, a list of txt for each command (list(string))\n
+               badVal, the off value to avoid (int)
+   &#34;&#34;&#34;
+   def __init__(self, master: Frame, listOfButtons: list, text: str, var: IntVar, command=None, commandlen = 0, txtLst = [], badVal = -1):
+      #Make parameters accessible within the class.
+      self.var = var
+      self.command = command
+      self.commandlen = commandlen
+      self.txtLst = txtLst
+
+      #prepare a list.
+      self.checkList = []
+      self.dependentButtons = listOfButtons
+
+      #Make a labelFrame for describing the pannel.
+      self.frame = LabelFrame(master, text=text)
+      self.frame.pack()
+
+      self.badVal = badVal
+
+      #Setup the disabling and reenabling the dependant buttons.
+      self.setupChecks()
+
+   def setupChecks(self):
+      &#34;&#34;&#34;
+      Make a list of CheckButtons that are off at -1 and on at the given numeric value.\n
+         the variable, makes it so that the value will be accessible elsewhere without having to check it (auto updates).
+      &#34;&#34;&#34;
+      #Make a list of CheckButtons and put them in the named pannel.
+      #The length of the for loop is dependent on if there are commands expected.
+      length = len(list(Colors.values())) if not self.command else self.commandlen
+
+      for i in range(length):
+         #Handle the case of black colors.
+         fg = &#34;white&#34; if list(HexColors.keys())[i] == &#34;000000&#34; else &#34;black&#34;
+         selectColor = &#34;black&#34; if list(HexColors.keys())[i] == &#34;000000&#34; else &#34;white&#34;
+         
+         #If there is a given command, then it isn&#39;t a colored list.
+         if not self.command:
+            #Creates a button, with the interest of allowing black to be seen.
+            self.checkList.append(Checkbutton(
+               self.frame,
+               text = list(Colors.keys())[i],
+               onvalue = list(Colors.values())[i],
+               offvalue = -1,
+               variable = self.var,
+               command = self.activateSelection,
+               activebackground=&#39;#&#39; + str(list(HexColors.keys())[i]),
+               activeforeground=&#34;black&#34;,
+               fg = fg,
+               selectcolor = selectColor,
+               width = 11,
+               bg = &#39;#&#39; + str(list(HexColors.keys())[i]),
+               anchor = W
+            ))
+         else:
+            #Make a generic check button list.
+            self.checkList.append(Checkbutton(
+               self.frame,
+               text = self.txtLst[i],
+               onvalue = i,
+               offvalue = -1,
+               variable = self.var,
+               command = self.activateCommand
+            ))
+         #Pack the buttons as they come in.
+         self.checkList[i].pack(anchor = W)
+
+   def activateCommand(self):
+      &#34;&#34;&#34;
+      Define the functionality for selecting a box.\n
+         If a box is enabled use the command, otherwise do nothing.\n
+         If an unreachable badValue is given, then command is executed every time the check is toggled.
+      &#34;&#34;&#34;
+      if self.var.get() != self.badVal:
+         self.command()
+
+   def activateSelection(self):
+      &#34;&#34;&#34;
+      Define the functionality for selecting a box.\n
+         If a box is selected then the dependent buttons\n
+         are enabled, otherwise the dependent buttons are disabled.
+      &#34;&#34;&#34;
+      if self.var.get() != -1:
+         for i in range(len(self.dependentButtons[0])):
+            self.dependentButtons[0][i][&#39;state&#39;] = NORMAL
+      
+      elif self.var.get() == -1:         
+         for i in range(len(self.dependentButtons[0])):
+            self.dependentButtons[0][i][&#39;state&#39;] = DISABLED</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="CheckMarkList.CheckButtonBar.activateCommand"><code class="name flex">
+<span>def <span class="ident">activateCommand</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Define the functionality for selecting a box.</p>
+<p>If a box is enabled use the command, otherwise do nothing.</p>
+<p>If an unreachable badValue is given, then command is executed every time the check is toggled.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def activateCommand(self):
+   &#34;&#34;&#34;
+   Define the functionality for selecting a box.\n
+      If a box is enabled use the command, otherwise do nothing.\n
+      If an unreachable badValue is given, then command is executed every time the check is toggled.
+   &#34;&#34;&#34;
+   if self.var.get() != self.badVal:
+      self.command()</code></pre>
+</details>
+</dd>
+<dt id="CheckMarkList.CheckButtonBar.activateSelection"><code class="name flex">
+<span>def <span class="ident">activateSelection</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Define the functionality for selecting a box.</p>
+<p>If a box is selected then the dependent buttons</p>
+<p>are enabled, otherwise the dependent buttons are disabled.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def activateSelection(self):
+   &#34;&#34;&#34;
+   Define the functionality for selecting a box.\n
+      If a box is selected then the dependent buttons\n
+      are enabled, otherwise the dependent buttons are disabled.
+   &#34;&#34;&#34;
+   if self.var.get() != -1:
+      for i in range(len(self.dependentButtons[0])):
+         self.dependentButtons[0][i][&#39;state&#39;] = NORMAL
+   
+   elif self.var.get() == -1:         
+      for i in range(len(self.dependentButtons[0])):
+         self.dependentButtons[0][i][&#39;state&#39;] = DISABLED</code></pre>
+</details>
+</dd>
+<dt id="CheckMarkList.CheckButtonBar.setupChecks"><code class="name flex">
+<span>def <span class="ident">setupChecks</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Make a list of CheckButtons that are off at -1 and on at the given numeric value.</p>
+<p>the variable, makes it so that the value will be accessible elsewhere without having to check it (auto updates).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setupChecks(self):
+   &#34;&#34;&#34;
+   Make a list of CheckButtons that are off at -1 and on at the given numeric value.\n
+      the variable, makes it so that the value will be accessible elsewhere without having to check it (auto updates).
+   &#34;&#34;&#34;
+   #Make a list of CheckButtons and put them in the named pannel.
+   #The length of the for loop is dependent on if there are commands expected.
+   length = len(list(Colors.values())) if not self.command else self.commandlen
+
+   for i in range(length):
+      #Handle the case of black colors.
+      fg = &#34;white&#34; if list(HexColors.keys())[i] == &#34;000000&#34; else &#34;black&#34;
+      selectColor = &#34;black&#34; if list(HexColors.keys())[i] == &#34;000000&#34; else &#34;white&#34;
+      
+      #If there is a given command, then it isn&#39;t a colored list.
+      if not self.command:
+         #Creates a button, with the interest of allowing black to be seen.
+         self.checkList.append(Checkbutton(
+            self.frame,
+            text = list(Colors.keys())[i],
+            onvalue = list(Colors.values())[i],
+            offvalue = -1,
+            variable = self.var,
+            command = self.activateSelection,
+            activebackground=&#39;#&#39; + str(list(HexColors.keys())[i]),
+            activeforeground=&#34;black&#34;,
+            fg = fg,
+            selectcolor = selectColor,
+            width = 11,
+            bg = &#39;#&#39; + str(list(HexColors.keys())[i]),
+            anchor = W
+         ))
+      else:
+         #Make a generic check button list.
+         self.checkList.append(Checkbutton(
+            self.frame,
+            text = self.txtLst[i],
+            onvalue = i,
+            offvalue = -1,
+            variable = self.var,
+            command = self.activateCommand
+         ))
+      #Pack the buttons as they come in.
+      self.checkList[i].pack(anchor = W)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="CheckMarkList.CheckButtonBar" href="#CheckMarkList.CheckButtonBar">CheckButtonBar</a></code></h4>
+<ul class="">
+<li><code><a title="CheckMarkList.CheckButtonBar.activateCommand" href="#CheckMarkList.CheckButtonBar.activateCommand">activateCommand</a></code></li>
+<li><code><a title="CheckMarkList.CheckButtonBar.activateSelection" href="#CheckMarkList.CheckButtonBar.activateSelection">activateSelection</a></code></li>
+<li><code><a title="CheckMarkList.CheckButtonBar.setupChecks" href="#CheckMarkList.CheckButtonBar.setupChecks">setupChecks</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>MultiWindow API documentation</title>
+<meta name="description" content="Author: John Burns …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>MultiWindow</code></h1>
+</header>
+<section id="section-intro">
+<p>Author: John Burns</p>
+<p>Last Modified: 5/26/2021</p>
+<p>OSU Email Address: burnsjo@oregonstate.edu</p>
+<p>Course Number ECE 342</p>
+<p>Project: LED Visualizer Group 2</p>
+<p>Due Date: 5/28/2021</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/python
+&#34;&#34;&#34;
+Author: John Burns\n
+Last Modified: 5/26/2021\n
+OSU Email Address: burnsjo@oregonstate.edu\n
+Course Number ECE 342\n
+Project: LED Visualizer Group 2\n
+Due Date: 5/28/2021
+&#34;&#34;&#34;
+
+from tkinter import *
+from Animation import Animation
+from ArduinoInterface import *
+from Layer import LEDLayer
+from CheckMarkList import CheckButtonBar
+from Slider import SliderFrames
+from Display import Display
+from pythonCOMport import *
+import sys
+import numpy as np
+
+#Constants that increase the readability of the slider array in one of the functions shown below.
+LAYER = 0
+FRAME = 1
+SPEED = 2
+FRAMECNT = 3
+EFFECT = 4
+
+class MultiWindow:
+   &#34;&#34;&#34;
+   A class that sets up the visualizer multiwindow.\n
+   The first window sends numeric data to sendValToArd(num) based on the chosen animation.\n
+   The second window is built to customize animation 4, 5, and 6.\n
+   All three animations are saved during the session, but would have to be rebuilt if the session was closed.\n
+   Clicking submit sends the animations to animationsForHeader(animations) based on the selections made in the interface.\n
+   To change an animation, select the animation (default 4), choose a frame (default 0), choose a layer (default 0),
+      choose a color (default none or black), finally click an LED.\n
+   You will not only keep animations when going to other tabs, you will also keep the place you were last working on that animation
+      when you come back.\n
+   The speed of an animation is adjustable. Just adjust the slider.\n
+   The maximum frame count of an animation is adjustable. Just adjust the slider.\n
+      Adjusting the maximum frame count will delete frames past that frame.
+      You needn&#39;t worry about the current frame slider. It will be always be in a valid state (will be reduced if max count is lower).\n
+   You may fill the animation with set commands. It is trivial to add more, just add them in the Animation.py file.\n
+   You may demo the animations by clicking the play Animation button.\n
+
+   For the curious... non of the features of the default animation (1, 2, and 3) are adjustable. Which is why they don&#39;t show up under
+      advanced settings bar.
+
+   Verified os: Windows and Linux. Due to the pack and grid methods, the windows should show up with the proper size on any system.
+      The system as a whole will not be cross platform, but this gui is.\n
+
+   Parameters: master, the top frame (Frame).
+   &#34;&#34;&#34;
+   def __init__(self, master: Tk):
+      #Setup windows.
+      self.master = master
+      self.secondaryWin = None
+      self.playWindow = None
+
+      #Prepare for button layer.
+      self.currentBtnLst = [None]
+      self.currentBtnLayer = None
+
+      #Prepare for sliders.
+      self.sliders = None
+
+      #setup global variables that can be changed with widget actions.
+      #These do not change between animations.
+      self.colorChosen = IntVar(value = -1)
+      self.commandChosen = IntVar(value = -1)
+      self.animationChosen = IntVar()
+      self.comChosen = IntVar(value = -1)
+
+      #These do change between animations, so there is 1 for each animation.
+      self.animations = []
+      self.speeds = []
+      self.frameCnts = []
+      self.layers = []
+      self.frames = []
+      self.effects = []
+      for i in range(3):
+         self.animations.append(Animation())
+         self.speeds.append(IntVar(value = self.animations[self.animationChosen.get()].getSpeed()))
+         self.frameCnts.append(IntVar(value = self.animations[self.animationChosen.get()].getNumFrames()))
+         self.layers.append(IntVar())
+         self.frames.append(IntVar())
+         self.effects.append(IntVar())
+
+      #Make the com frame based on available coms.
+      self.sendBtns = []
+      self.comFrame = None
+      self.submitBtn = None
+      self.updateComFrame()
+
+      #layout the buttons and their functionality.
+      self.setupMainWindow(master)
+
+      #Allow for creating another window with
+      self.nextBtn = Button(self.master, text=&#34;Advanced Settings&#34;, width = 15, command=self.advancedSettingOptions)
+      self.nextBtn.grid(row = 2, column = 1)
+
+      #Create an uodate button.
+      self.updateBtn = Button(self.master, text=&#34;Update COMs&#34;, width = 15, command=self.updateComFrame)
+      self.updateBtn.grid(row = 2, column = 2)      
+
+   def updateComDependentBtns(self):
+      &#34;&#34;&#34;
+      update the sending buttons based on whether a com is chosen.
+      &#34;&#34;&#34;
+      #Activate for selected, Disabled if not.
+      val = NORMAL if len(self.listOfComs) &gt; 0 and self.comChosen.get() != -1 else DISABLED
+
+      #Update the buttons based on their functionality.
+      for i in range(len(self.sendBtns)):
+         self.sendBtns[i][&#39;state&#39;] = val
+      if self.submitBtn:
+         self.submitBtn[&#39;state&#39;] = val
+
+   def updateComFrame(self):
+      &#34;&#34;&#34;
+      Update the com frame.
+      &#34;&#34;&#34;
+      #Destroy the com frame if it exists.
+      if self.comFrame:
+         self.comFrame.destroy()
+
+      #Find the descriptions of the available ports.      
+      self.listOfComs = getDescriptions()
+      #If there aren&#39;t any coms, remove chosen com.
+      if len(self.listOfComs) == 0:
+         self.comChosen.set(-1)
+      
+      #Make a frame for the com. Put it at the far right. Shape it based number of coms available.
+      self.comFrame = Frame(self.master)
+      self.comFrame.grid(row = 0, column=3, rowspan = len(self.listOfComs) if len(self.listOfComs) &gt; 3 else 3, sticky = N)
+
+      #Update the buttons.
+      self.updateComDependentBtns()
+
+      #make the button list.
+      self.comChecks = CheckButtonBar(self.comFrame, None, &#39;Select a COM&#39;, self.comChosen, self.findPort(self.listOfComs), len(self.listOfComs), self.listOfComs, -2)
+
+   def findPort(self, listOfComs: list):
+      &#34;&#34;&#34;
+      update the port and get the ports. Verbose mode is activated if a comport was chosen.\n
+      Returns a function handle to be executed when check button is clicked. [funct1, funct2].
+      &#34;&#34;&#34;
+      return lambda: [self.updateComFrame(), getPort(listOfComs[self.comChosen.get()], True if self.comChosen.get() &gt; -1 else False)]
+
+   def setupMainWindow(self, basic):
+      &#34;&#34;&#34;
+      Sets up the main window. The main wondow contains 6 windows in a 2*3 grid of buttons.\n
+      The 6 buttons send a number to a function to be used by the Arduino Interface.
+      &#34;&#34;&#34;
+      #Keep track of the button number.
+      counter = 0
+      #Make 2 rows.
+      for i in range(2):
+         #Make 3 columns.
+         for j in range(3):
+            #Create uniform buttons with a function handle that allows for a number to be passed every time it is called.
+            self.sendBtns.append(Button(basic, text =f&#34;Animation {counter+1}&#34;, width = 15, height = 1, command = self.choiceLambda(counter)))
+            self.sendBtns[counter].grid(row = i, column = j)
+            if len(self.listOfComs) == 0 or self.comChosen.get() == -1:
+               self.sendBtns[counter][&#39;state&#39;] = DISABLED
+            counter += 1
+   
+   def choiceLambda(self, num: int):
+      &#34;&#34;&#34;
+      function handle generator. This allows the buttons to use a command with a numeric input.\n
+      parameters: num, the numeric representation of the user&#39;s choice.\n
+      returns: a lambda, a function handle that can be run any time one of the determined buttons is clicked.
+      &#34;&#34;&#34;
+      return lambda: self.displayChoice(num)
+
+   def displayChoice(self, num: int):
+      &#34;&#34;&#34;
+      Let the user know what they did as well as let them know how to continue.\n
+      parameters: num, the numeric representation of the user&#39;s choice.
+      &#34;&#34;&#34;
+      #Send the value over the to arduino once the user closes the messagebox.
+      sendValToArd(num, self.listOfComs[self.comChosen.get()])
+
+   def sendAnimationsLam(self, animations: list):
+      &#34;&#34;&#34;
+      function handle generator. This allows one function to control multiple events via a parameter.\n
+      parameters: animation, the number attached to the animation button clicked.\n
+      returns: a lambda, a function handle that can be run any time, with the preset value.
+      &#34;&#34;&#34;
+      return lambda: animationsForHeader(animations, self.listOfComs[self.comChosen.get()])
+
+   def advancedSettingOptions(self):
+      &#34;&#34;&#34;
+      Set up an advanced setting window temporarily closing the main window. This setup process only needs
+         to happen if this Secondary Window has not already been setup.\n
+      As can be seen below the functionaliy of this is split into making a tab frame and then an action frame.\n
+         The tab frame allows one to select an animation to modify, go to the basic settings window, or send the animation
+         to the arduino (Submit)
+      &#34;&#34;&#34;
+      #If a window is not already setup. Make one.
+      if not self.secondaryWin:
+         #Make a top level window frame.
+         self.secondaryWin = Toplevel()
+         #If the user closes the GUI, exit the program.
+         self.secondaryWin.protocol(&#34;WM_DELETE_WINDOW&#34;, sys.exit)
+
+         #Setup the top button (tab) frame and action frame.
+         #The action frame is the main place where settings are changed.
+         tabFrame = Frame(self.secondaryWin)
+         actionFrame = Frame(self.secondaryWin)
+         tabFrame.pack(anchor = W)
+         actionFrame.pack(anchor = W)
+
+         #Allow easy access to the future btn pannel.
+         self.btnFrame = None
+         
+         #Setup 3 animation tabs. They are Animations whose matrix will be edited by changing the colors of the buttons.
+         for i in range(3):
+            Button(tabFrame, text =f&#34;Animation {i+4}&#34;, width = 12, command = self.selectActLam(i)).pack(side = LEFT)
+         Button(tabFrame, text=&#34;Play Animation&#34;, width = 12, command = self.playAnimationWindow).pack(side = LEFT)
+         #Allow the user to return to the original window.
+         Button(tabFrame, text=&#34;Basic Settings&#34;, width = 12, command=self.basicSettingOptions).pack(side = LEFT)
+         #Allow the user to submit the edited animations to the Arduino.
+         self.submitBtn = Button(tabFrame, text=&#34;Submit&#34;, bg = &#39;green&#39;, width = 12, command = self.sendAnimationsLam(self.animations))
+         self.submitBtn.pack(side = LEFT)
+
+         #Put the window in the top left so that no matter the os, it will show as best as possible.
+         self.secondaryWin.geometry(&#34;+0+0&#34;)
+         #Hide the main window.
+         self.master.withdraw()
+
+         #Remove the animation demo window.
+         if self.playWindow:
+            self.playWindow.destroy()
+            self.playWindow = None
+         
+         #Setup the action frame.
+         self.setupActionFrame(actionFrame)
+      else:
+         #If the secondary window has already been setup, then just show the secondary window and hide the main window.
+         #withdraw() turns the window into a hidden icon. deiconify() undoes this action.
+         self.secondaryWin.deiconify()
+         #if there is a play window, remove it.
+         if self.playWindow:
+            self.playWindow.destroy()
+            self.playWindow = None
+         self.master.withdraw()
+
+      self.submitBtn[&#39;state&#39;] = DISABLED if len(self.listOfComs) == 0 or self.comChosen.get() == -1 else NORMAL
+   
+   def basicSettingOptions(self):
+      &#34;&#34;&#34;
+      Method for togling the visible window.\n
+         Hides the secondary window and shows the primary window.
+      &#34;&#34;&#34;
+      self.secondaryWin.withdraw()
+      self.master.deiconify()
+   
+   def playAnimationWindow(self):
+      &#34;&#34;&#34;
+      Create a play Animation window.
+      &#34;&#34;&#34;   
+      #Create, title, place, and define closing behavior.
+      self.playWindow = Toplevel()
+      self.playWindow.title(&#34;Animation Demo&#34;)
+      self.playWindow.geometry(&#34;+0+0&#34;)
+      self.playWindow.protocol(&#34;WM_DELETE_WINDOW&#34;, sys.exit)
+
+      #Hide the secondary window.
+      self.secondaryWin.withdraw()
+
+      #Show the display window, with ability to go back to secondary window.
+      Display(self.playWindow, self.animations[self.animationChosen.get()], [&#34;Advanced Settings&#34;, self.advancedSettingOptions])
+
+   def setupActionFrame(self, actionFrame: Frame):
+      &#34;&#34;&#34;
+      Sets up the frame in the secondary window where the user makes all the edits.\n
+      parameters: actionFrame, the frame to be used for the action frame.
+      &#34;&#34;&#34;
+      #Save the frame used for the buttons (changes every time one of the settings changes).
+      self.btnFrame = Frame(actionFrame)
+      #Make a frame for the color selection frame.
+      colorSelFrame = Frame(actionFrame)
+      #make a command frame for the far right.
+      commandSelFrame = Frame(actionFrame)
+
+      #Put the frames on the window with some asthetic intent.
+      colorSelFrame.pack(side = LEFT, fill = Y)
+      self.btnFrame.pack(side = LEFT, fill = BOTH)
+      commandSelFrame.pack(side = LEFT, fill = Y)
+
+      #Make the slider frames and let them be accessessable elsewhere.
+      self.sliders = SliderFrames(self.btnFrame, self.getInfo())
+
+      #Setup the button layer functionality.
+      self.LEDSelectionSetup()
+
+      #Setup a color selection bar which enable/disable the buttons as well as allow you to click the buttons until the user decides
+      #to change color.
+      CheckButtonBar(colorSelFrame, self.currentBtnLst, &#39;Possible Colors&#39;, self.colorChosen)
+
+      #Add a check list for the right side of the gui.
+      listOfCommands = self.animations[self.animationChosen.get()].specialAnimations
+      CheckButtonBar(commandSelFrame, None, &#39;Choose a Command&#39;, self.commandChosen, self.doAction, len(listOfCommands), np.array(listOfCommands)[:, 0].tolist())
+
+   def doAction(self):
+      &#34;&#34;&#34;
+      Fill the animation acording to the button checked. Update the layer buttons as well.
+      &#34;&#34;&#34;
+      #Remove the current btn layer.
+      self.currentBtnLayer.remove()
+
+      #Execute the command on the current animation.
+      if self.effects[self.animationChosen.get()].get() == 0:
+         self.animations[self.animationChosen.get()].specialAnimations[self.commandChosen.get()][1](self.frames[self.animationChosen.get()].get(), self.layers[self.animationChosen.get()].get(), self.colorChosen.get())
+      elif self.effects[self.animationChosen.get()].get() == 1:
+         self.animations[self.animationChosen.get()].specialAnimations[self.commandChosen.get()][1](self.frames[self.animationChosen.get()].get(), self.colorChosen.get())
+      elif self.effects[self.animationChosen.get()].get() == 2:
+         self.animations[self.animationChosen.get()].specialAnimations[self.commandChosen.get()][1](self.colorChosen.get())
+
+      #find the chosen animation based on the list of animations.
+      chosenAnimation = self.animations[self.animationChosen.get()]
+      #Setup the layer corresponding to the layer information chosen.
+      self.setLayer(chosenAnimation, self.frames[self.animationChosen.get()].get())
+
+      self.commandChosen.set(-1)
+   
+   def getInfo(self):
+      &#34;&#34;&#34;
+      Retrieve the information required for the sliders.\n
+         It is setup in such a way that more of either type of slider can be added fairly simply.
+         format of the parameters is: text (string), lo (int), hi (int), variable (needs .get() method), command (function handle).\n
+      returns: info, a 2 element array of slider parameters.
+      &#34;&#34;&#34;
+      #Get the chosen matrix based on the chosen animation and chosen frame (matrix).
+      matrix = self.animations[self.animationChosen.get()].getFrame(self.frames[self.animationChosen.get()].get())
+      #Parameters for the info changing sliders (layer and frame).
+      posInfo = [[&#39;Choose Layer&#39;, 0, matrix.getzlen()-1, self.layers[self.animationChosen.get()], self.selAct], \
+         [&#39;Choose Frame&#39;, 0, self.animations[self.animationChosen.get()].getNumFrames()-1, self.frames[self.animationChosen.get()], self.selAct]]
+      
+      #Parameters for the feature changing sliders (speed and max frame count).
+      featureInfo = [[&#39;Choose Speed (fps)&#39;, 1, self.animations[self.animationChosen.get()].getSpeed(), self.speeds[self.animationChosen.get()], self.selAct], \
+         [&#39;Max Frame Count&#39;, 1, self.animations[self.animationChosen.get()].getNumFrames(), self.frameCnts[self.animationChosen.get()], self.selAct], \
+         [&#39;Effect (layer, frame, whole)&#39;, 0, 2, self.effects[self.animationChosen.get()], self.selAct]]
+      
+      return [posInfo, featureInfo]
+
+   def LEDSelectionSetup(self):
+      &#34;&#34;&#34;
+      Setup the selection of LEDs. A 5x5 (size of a matrix layer) button frame is presented. Based on the layer, animation, frame,
+         and color the values of the animations can be changed with a click. The change in the animations is reflected by the
+         color of these buttons.
+      &#34;&#34;&#34;
+      #Get the chosen matrix based on the chosen animation and chosen frame (matrix).
+      matrix = self.animations[self.animationChosen.get()].getFrame(self.frames[self.animationChosen.get()].get())
+      #Make a new btn layer.
+      self.currentBtnLayer = LEDLayer(self.btnFrame, matrix, self.colorChosen, self.layers[self.animationChosen.get()])
+      #Add the button layer to the button list. This makes it easier to destroy and rebuild later.
+      self.currentBtnLst[0] = self.currentBtnLayer.buttonLst
+
+   def selectActLam(self, animSelected: int):
+      &#34;&#34;&#34;
+      function handle, allows multiple buttons to have the same function with slightly different (preset) values.\n
+      parameters: animSelected, the animation that is being edited (int).\n
+      returns: function handle, a way to change the features of the animation being changed based on the variables set up\n
+         and animation edited so far (lambda).
+      &#34;&#34;&#34;
+      return lambda: self.selAnimAct(animSelected)
+   
+   def selAnimAct(self, animSelected: int):
+      &#34;&#34;&#34;
+      Definition of what happens when an animation is selected. It resets the sliders to the values they were when editing that
+         animation as well as changes the btn layer to the layer corresponding to the sliders.\n
+      parameters: animSelected, the animation being edited (int).
+      &#34;&#34;&#34;
+      #Remove the current btn layer.
+      self.currentBtnLayer.remove()
+
+      #update the chosen animation variable.
+      self.animationChosen.set(animSelected)
+
+      #get the scales from the information saved on the sliders (when the sliders were created).
+      scales = []
+      for strip in range(len(self.sliders.listofscaleFrame_sels)):
+         for scale in range(len(self.sliders.listofscaleFrame_sels[strip])):
+            scales.append(self.sliders.listofscaleFrame_sels[strip][scale][1])
+      
+      #Update the scales to how they were with the current animation.
+      scales[LAYER].set(self.layers[self.animationChosen.get()].get())
+      scales[FRAME].set(self.frames[self.animationChosen.get()].get())
+      scales[SPEED].set(self.speeds[self.animationChosen.get()].get())
+      scales[FRAMECNT].set(self.frameCnts[self.animationChosen.get()].get())
+      scales[EFFECT].set(self.effects[self.animationChosen.get()].get())
+
+      #find the chosen animation based on the list of animations.
+      chosenAnimation = self.animations[self.animationChosen.get()]
+      #Setup the layer corresponding to the layer information chosen.
+      self.setLayer(chosenAnimation, self.frames[self.animationChosen.get()].get())
+   
+   def selAct(self, selected: int):
+      &#34;&#34;&#34;
+      Very similar to the above method however it had a fundemental difference. One is that
+         it is called by sliders (which pass changed parameters so animSelected would be flagged
+         inapropriately), but also that the variable are updated based on the sliders rather than
+         the slider on the variables. Since one slider is being used for all three animations
+         (akward things happen if you try to delete and resetup the sliders due to the variables being attached)
+         the best course of action is to update the variables based on the sliders and then when the animation
+         changes, change the slider values to those animation dependent variables.\n
+      parameters: selected, the feature selected. Ghost parameter, not in use as it would require a seperate function\n
+         for each parameter. As seen in the description an adequate work arond was found.
+      &#34;&#34;&#34;
+      #Remove the current button layer.
+      self.currentBtnLayer.remove()
+
+      #get the scales from the information saved on the sliders (when the sliders were created).
+      scales = []
+      for strip in range(len(self.sliders.listofscaleFrame_sels)):
+         for scale in range(len(self.sliders.listofscaleFrame_sels[strip])):
+            scales.append(self.sliders.listofscaleFrame_sels[strip][scale][1])
+
+      #Update the variables for the animation depended variables based on the scale&#39;s current value.
+      #Update the layer variable based on the slider.
+      self.layers[self.animationChosen.get()].set(scales[LAYER].get())
+      #Update the maximum frame variable based on the slider.
+      self.frameCnts[self.animationChosen.get()].set(scales[FRAMECNT].get())
+      #Update the maximum effect variable based on the slider.
+      self.effects[self.animationChosen.get()].set(scales[EFFECT].get())
+
+      #Protect the user from moving the frame slider past the maximum value.
+      if scales[FRAME].get() &lt; scales[FRAMECNT].get():
+         #Update the frame variable based on the slider.
+         self.frames[self.animationChosen.get()].set(scales[FRAME].get())
+      else:
+         #Reset the slider to the maximum value if the user tried to take it past.
+         scales[FRAME].set(scales[FRAMECNT].get()-1)
+      
+      #Update speed variable based on the slider.
+      self.speeds[self.animationChosen.get()].set(scales[SPEED].get())
+      
+      #Make the chosen animation easily accessable.
+      chosenAnimation = self.animations[self.animationChosen.get()]
+      #Update the speed and maximum frame count of the chosen animation to the values stored in the variables updated above.
+      chosenAnimation.setSpeed(self.speeds[self.animationChosen.get()].get())
+      chosenAnimation.changeFrameCnt(self.frameCnts[self.animationChosen.get()].get())
+
+      #If the user is moving the maximum frame count below the frame selected,
+      #  move frame selected with it.
+      frameNum = 0
+      if chosenAnimation.getNumFrames() &lt;= self.frames[self.animationChosen.get()].get():
+         #The frame chosen must be the maximum frame possible (0 indexed list)
+         frameNum = chosenAnimation.getNumFrames() - 1
+      else:
+         #The frame chosen is just the value in the variable.
+         frameNum = self.frames[self.animationChosen.get()].get()
+      
+      #Update the layer based on the animation and frame number.
+      #Be warned that lowering the frame number will erase any custom frames in the animation after that point.
+      self.setLayer(chosenAnimation, frameNum)
+
+   def setLayer(self, chosenAnimation: IntVar, frameNum: int):
+      &#34;&#34;&#34;
+      Create a new layer based on the chosen values.\n
+      parameters: chosenAnimation, the animation that has been chosen (IntVar).\n
+                  frameNum, the frame (matrix) to select (int).
+      &#34;&#34;&#34;
+      #Make the chosen Matrix easy to access.
+      chosenMatrix = chosenAnimation.getFrame(frameNum)
+      #Create a new button layer.
+      self.currentBtnLayer = LEDLayer(self.btnFrame, chosenMatrix, self.colorChosen, self.layers[self.animationChosen.get()])
+      self.currentBtnLst[0] = self.currentBtnLayer.buttonLst</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="MultiWindow.MultiWindow"><code class="flex name class">
+<span>class <span class="ident">MultiWindow</span></span>
+<span>(</span><span>master: tkinter.Tk)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that sets up the visualizer multiwindow.</p>
+<p>The first window sends numeric data to sendValToArd(num) based on the chosen animation.</p>
+<p>The second window is built to customize animation 4, 5, and 6.</p>
+<p>All three animations are saved during the session, but would have to be rebuilt if the session was closed.</p>
+<p>Clicking submit sends the animations to animationsForHeader(animations) based on the selections made in the interface.</p>
+<p>To change an animation, select the animation (default 4), choose a frame (default 0), choose a layer (default 0),
+choose a color (default none or black), finally click an LED.</p>
+<p>You will not only keep animations when going to other tabs, you will also keep the place you were last working on that animation
+when you come back.</p>
+<p>The speed of an animation is adjustable. Just adjust the slider.</p>
+<p>The maximum frame count of an animation is adjustable. Just adjust the slider.</p>
+<p>Adjusting the maximum frame count will delete frames past that frame.
+You needn't worry about the current frame slider. It will be always be in a valid state (will be reduced if max count is lower).</p>
+<p>You may fill the animation with set commands. It is trivial to add more, just add them in the Animation.py file.</p>
+<p>You may demo the animations by clicking the play Animation button.</p>
+<p>For the curious&hellip; non of the features of the default animation (1, 2, and 3) are adjustable. Which is why they don't show up under
+advanced settings bar.</p>
+<p>Verified os: Windows and Linux. Due to the pack and grid methods, the windows should show up with the proper size on any system.
+The system as a whole will not be cross platform, but this gui is.</p>
+<p>Parameters: master, the top frame (Frame).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MultiWindow:
+   &#34;&#34;&#34;
+   A class that sets up the visualizer multiwindow.\n
+   The first window sends numeric data to sendValToArd(num) based on the chosen animation.\n
+   The second window is built to customize animation 4, 5, and 6.\n
+   All three animations are saved during the session, but would have to be rebuilt if the session was closed.\n
+   Clicking submit sends the animations to animationsForHeader(animations) based on the selections made in the interface.\n
+   To change an animation, select the animation (default 4), choose a frame (default 0), choose a layer (default 0),
+      choose a color (default none or black), finally click an LED.\n
+   You will not only keep animations when going to other tabs, you will also keep the place you were last working on that animation
+      when you come back.\n
+   The speed of an animation is adjustable. Just adjust the slider.\n
+   The maximum frame count of an animation is adjustable. Just adjust the slider.\n
+      Adjusting the maximum frame count will delete frames past that frame.
+      You needn&#39;t worry about the current frame slider. It will be always be in a valid state (will be reduced if max count is lower).\n
+   You may fill the animation with set commands. It is trivial to add more, just add them in the Animation.py file.\n
+   You may demo the animations by clicking the play Animation button.\n
+
+   For the curious... non of the features of the default animation (1, 2, and 3) are adjustable. Which is why they don&#39;t show up under
+      advanced settings bar.
+
+   Verified os: Windows and Linux. Due to the pack and grid methods, the windows should show up with the proper size on any system.
+      The system as a whole will not be cross platform, but this gui is.\n
+
+   Parameters: master, the top frame (Frame).
+   &#34;&#34;&#34;
+   def __init__(self, master: Tk):
+      #Setup windows.
+      self.master = master
+      self.secondaryWin = None
+      self.playWindow = None
+
+      #Prepare for button layer.
+      self.currentBtnLst = [None]
+      self.currentBtnLayer = None
+
+      #Prepare for sliders.
+      self.sliders = None
+
+      #setup global variables that can be changed with widget actions.
+      #These do not change between animations.
+      self.colorChosen = IntVar(value = -1)
+      self.commandChosen = IntVar(value = -1)
+      self.animationChosen = IntVar()
+      self.comChosen = IntVar(value = -1)
+
+      #These do change between animations, so there is 1 for each animation.
+      self.animations = []
+      self.speeds = []
+      self.frameCnts = []
+      self.layers = []
+      self.frames = []
+      self.effects = []
+      for i in range(3):
+         self.animations.append(Animation())
+         self.speeds.append(IntVar(value = self.animations[self.animationChosen.get()].getSpeed()))
+         self.frameCnts.append(IntVar(value = self.animations[self.animationChosen.get()].getNumFrames()))
+         self.layers.append(IntVar())
+         self.frames.append(IntVar())
+         self.effects.append(IntVar())
+
+      #Make the com frame based on available coms.
+      self.sendBtns = []
+      self.comFrame = None
+      self.submitBtn = None
+      self.updateComFrame()
+
+      #layout the buttons and their functionality.
+      self.setupMainWindow(master)
+
+      #Allow for creating another window with
+      self.nextBtn = Button(self.master, text=&#34;Advanced Settings&#34;, width = 15, command=self.advancedSettingOptions)
+      self.nextBtn.grid(row = 2, column = 1)
+
+      #Create an uodate button.
+      self.updateBtn = Button(self.master, text=&#34;Update COMs&#34;, width = 15, command=self.updateComFrame)
+      self.updateBtn.grid(row = 2, column = 2)      
+
+   def updateComDependentBtns(self):
+      &#34;&#34;&#34;
+      update the sending buttons based on whether a com is chosen.
+      &#34;&#34;&#34;
+      #Activate for selected, Disabled if not.
+      val = NORMAL if len(self.listOfComs) &gt; 0 and self.comChosen.get() != -1 else DISABLED
+
+      #Update the buttons based on their functionality.
+      for i in range(len(self.sendBtns)):
+         self.sendBtns[i][&#39;state&#39;] = val
+      if self.submitBtn:
+         self.submitBtn[&#39;state&#39;] = val
+
+   def updateComFrame(self):
+      &#34;&#34;&#34;
+      Update the com frame.
+      &#34;&#34;&#34;
+      #Destroy the com frame if it exists.
+      if self.comFrame:
+         self.comFrame.destroy()
+
+      #Find the descriptions of the available ports.      
+      self.listOfComs = getDescriptions()
+      #If there aren&#39;t any coms, remove chosen com.
+      if len(self.listOfComs) == 0:
+         self.comChosen.set(-1)
+      
+      #Make a frame for the com. Put it at the far right. Shape it based number of coms available.
+      self.comFrame = Frame(self.master)
+      self.comFrame.grid(row = 0, column=3, rowspan = len(self.listOfComs) if len(self.listOfComs) &gt; 3 else 3, sticky = N)
+
+      #Update the buttons.
+      self.updateComDependentBtns()
+
+      #make the button list.
+      self.comChecks = CheckButtonBar(self.comFrame, None, &#39;Select a COM&#39;, self.comChosen, self.findPort(self.listOfComs), len(self.listOfComs), self.listOfComs, -2)
+
+   def findPort(self, listOfComs: list):
+      &#34;&#34;&#34;
+      update the port and get the ports. Verbose mode is activated if a comport was chosen.\n
+      Returns a function handle to be executed when check button is clicked. [funct1, funct2].
+      &#34;&#34;&#34;
+      return lambda: [self.updateComFrame(), getPort(listOfComs[self.comChosen.get()], True if self.comChosen.get() &gt; -1 else False)]
+
+   def setupMainWindow(self, basic):
+      &#34;&#34;&#34;
+      Sets up the main window. The main wondow contains 6 windows in a 2*3 grid of buttons.\n
+      The 6 buttons send a number to a function to be used by the Arduino Interface.
+      &#34;&#34;&#34;
+      #Keep track of the button number.
+      counter = 0
+      #Make 2 rows.
+      for i in range(2):
+         #Make 3 columns.
+         for j in range(3):
+            #Create uniform buttons with a function handle that allows for a number to be passed every time it is called.
+            self.sendBtns.append(Button(basic, text =f&#34;Animation {counter+1}&#34;, width = 15, height = 1, command = self.choiceLambda(counter)))
+            self.sendBtns[counter].grid(row = i, column = j)
+            if len(self.listOfComs) == 0 or self.comChosen.get() == -1:
+               self.sendBtns[counter][&#39;state&#39;] = DISABLED
+            counter += 1
+   
+   def choiceLambda(self, num: int):
+      &#34;&#34;&#34;
+      function handle generator. This allows the buttons to use a command with a numeric input.\n
+      parameters: num, the numeric representation of the user&#39;s choice.\n
+      returns: a lambda, a function handle that can be run any time one of the determined buttons is clicked.
+      &#34;&#34;&#34;
+      return lambda: self.displayChoice(num)
+
+   def displayChoice(self, num: int):
+      &#34;&#34;&#34;
+      Let the user know what they did as well as let them know how to continue.\n
+      parameters: num, the numeric representation of the user&#39;s choice.
+      &#34;&#34;&#34;
+      #Send the value over the to arduino once the user closes the messagebox.
+      sendValToArd(num, self.listOfComs[self.comChosen.get()])
+
+   def sendAnimationsLam(self, animations: list):
+      &#34;&#34;&#34;
+      function handle generator. This allows one function to control multiple events via a parameter.\n
+      parameters: animation, the number attached to the animation button clicked.\n
+      returns: a lambda, a function handle that can be run any time, with the preset value.
+      &#34;&#34;&#34;
+      return lambda: animationsForHeader(animations, self.listOfComs[self.comChosen.get()])
+
+   def advancedSettingOptions(self):
+      &#34;&#34;&#34;
+      Set up an advanced setting window temporarily closing the main window. This setup process only needs
+         to happen if this Secondary Window has not already been setup.\n
+      As can be seen below the functionaliy of this is split into making a tab frame and then an action frame.\n
+         The tab frame allows one to select an animation to modify, go to the basic settings window, or send the animation
+         to the arduino (Submit)
+      &#34;&#34;&#34;
+      #If a window is not already setup. Make one.
+      if not self.secondaryWin:
+         #Make a top level window frame.
+         self.secondaryWin = Toplevel()
+         #If the user closes the GUI, exit the program.
+         self.secondaryWin.protocol(&#34;WM_DELETE_WINDOW&#34;, sys.exit)
+
+         #Setup the top button (tab) frame and action frame.
+         #The action frame is the main place where settings are changed.
+         tabFrame = Frame(self.secondaryWin)
+         actionFrame = Frame(self.secondaryWin)
+         tabFrame.pack(anchor = W)
+         actionFrame.pack(anchor = W)
+
+         #Allow easy access to the future btn pannel.
+         self.btnFrame = None
+         
+         #Setup 3 animation tabs. They are Animations whose matrix will be edited by changing the colors of the buttons.
+         for i in range(3):
+            Button(tabFrame, text =f&#34;Animation {i+4}&#34;, width = 12, command = self.selectActLam(i)).pack(side = LEFT)
+         Button(tabFrame, text=&#34;Play Animation&#34;, width = 12, command = self.playAnimationWindow).pack(side = LEFT)
+         #Allow the user to return to the original window.
+         Button(tabFrame, text=&#34;Basic Settings&#34;, width = 12, command=self.basicSettingOptions).pack(side = LEFT)
+         #Allow the user to submit the edited animations to the Arduino.
+         self.submitBtn = Button(tabFrame, text=&#34;Submit&#34;, bg = &#39;green&#39;, width = 12, command = self.sendAnimationsLam(self.animations))
+         self.submitBtn.pack(side = LEFT)
+
+         #Put the window in the top left so that no matter the os, it will show as best as possible.
+         self.secondaryWin.geometry(&#34;+0+0&#34;)
+         #Hide the main window.
+         self.master.withdraw()
+
+         #Remove the animation demo window.
+         if self.playWindow:
+            self.playWindow.destroy()
+            self.playWindow = None
+         
+         #Setup the action frame.
+         self.setupActionFrame(actionFrame)
+      else:
+         #If the secondary window has already been setup, then just show the secondary window and hide the main window.
+         #withdraw() turns the window into a hidden icon. deiconify() undoes this action.
+         self.secondaryWin.deiconify()
+         #if there is a play window, remove it.
+         if self.playWindow:
+            self.playWindow.destroy()
+            self.playWindow = None
+         self.master.withdraw()
+
+      self.submitBtn[&#39;state&#39;] = DISABLED if len(self.listOfComs) == 0 or self.comChosen.get() == -1 else NORMAL
+   
+   def basicSettingOptions(self):
+      &#34;&#34;&#34;
+      Method for togling the visible window.\n
+         Hides the secondary window and shows the primary window.
+      &#34;&#34;&#34;
+      self.secondaryWin.withdraw()
+      self.master.deiconify()
+   
+   def playAnimationWindow(self):
+      &#34;&#34;&#34;
+      Create a play Animation window.
+      &#34;&#34;&#34;   
+      #Create, title, place, and define closing behavior.
+      self.playWindow = Toplevel()
+      self.playWindow.title(&#34;Animation Demo&#34;)
+      self.playWindow.geometry(&#34;+0+0&#34;)
+      self.playWindow.protocol(&#34;WM_DELETE_WINDOW&#34;, sys.exit)
+
+      #Hide the secondary window.
+      self.secondaryWin.withdraw()
+
+      #Show the display window, with ability to go back to secondary window.
+      Display(self.playWindow, self.animations[self.animationChosen.get()], [&#34;Advanced Settings&#34;, self.advancedSettingOptions])
+
+   def setupActionFrame(self, actionFrame: Frame):
+      &#34;&#34;&#34;
+      Sets up the frame in the secondary window where the user makes all the edits.\n
+      parameters: actionFrame, the frame to be used for the action frame.
+      &#34;&#34;&#34;
+      #Save the frame used for the buttons (changes every time one of the settings changes).
+      self.btnFrame = Frame(actionFrame)
+      #Make a frame for the color selection frame.
+      colorSelFrame = Frame(actionFrame)
+      #make a command frame for the far right.
+      commandSelFrame = Frame(actionFrame)
+
+      #Put the frames on the window with some asthetic intent.
+      colorSelFrame.pack(side = LEFT, fill = Y)
+      self.btnFrame.pack(side = LEFT, fill = BOTH)
+      commandSelFrame.pack(side = LEFT, fill = Y)
+
+      #Make the slider frames and let them be accessessable elsewhere.
+      self.sliders = SliderFrames(self.btnFrame, self.getInfo())
+
+      #Setup the button layer functionality.
+      self.LEDSelectionSetup()
+
+      #Setup a color selection bar which enable/disable the buttons as well as allow you to click the buttons until the user decides
+      #to change color.
+      CheckButtonBar(colorSelFrame, self.currentBtnLst, &#39;Possible Colors&#39;, self.colorChosen)
+
+      #Add a check list for the right side of the gui.
+      listOfCommands = self.animations[self.animationChosen.get()].specialAnimations
+      CheckButtonBar(commandSelFrame, None, &#39;Choose a Command&#39;, self.commandChosen, self.doAction, len(listOfCommands), np.array(listOfCommands)[:, 0].tolist())
+
+   def doAction(self):
+      &#34;&#34;&#34;
+      Fill the animation acording to the button checked. Update the layer buttons as well.
+      &#34;&#34;&#34;
+      #Remove the current btn layer.
+      self.currentBtnLayer.remove()
+
+      #Execute the command on the current animation.
+      if self.effects[self.animationChosen.get()].get() == 0:
+         self.animations[self.animationChosen.get()].specialAnimations[self.commandChosen.get()][1](self.frames[self.animationChosen.get()].get(), self.layers[self.animationChosen.get()].get(), self.colorChosen.get())
+      elif self.effects[self.animationChosen.get()].get() == 1:
+         self.animations[self.animationChosen.get()].specialAnimations[self.commandChosen.get()][1](self.frames[self.animationChosen.get()].get(), self.colorChosen.get())
+      elif self.effects[self.animationChosen.get()].get() == 2:
+         self.animations[self.animationChosen.get()].specialAnimations[self.commandChosen.get()][1](self.colorChosen.get())
+
+      #find the chosen animation based on the list of animations.
+      chosenAnimation = self.animations[self.animationChosen.get()]
+      #Setup the layer corresponding to the layer information chosen.
+      self.setLayer(chosenAnimation, self.frames[self.animationChosen.get()].get())
+
+      self.commandChosen.set(-1)
+   
+   def getInfo(self):
+      &#34;&#34;&#34;
+      Retrieve the information required for the sliders.\n
+         It is setup in such a way that more of either type of slider can be added fairly simply.
+         format of the parameters is: text (string), lo (int), hi (int), variable (needs .get() method), command (function handle).\n
+      returns: info, a 2 element array of slider parameters.
+      &#34;&#34;&#34;
+      #Get the chosen matrix based on the chosen animation and chosen frame (matrix).
+      matrix = self.animations[self.animationChosen.get()].getFrame(self.frames[self.animationChosen.get()].get())
+      #Parameters for the info changing sliders (layer and frame).
+      posInfo = [[&#39;Choose Layer&#39;, 0, matrix.getzlen()-1, self.layers[self.animationChosen.get()], self.selAct], \
+         [&#39;Choose Frame&#39;, 0, self.animations[self.animationChosen.get()].getNumFrames()-1, self.frames[self.animationChosen.get()], self.selAct]]
+      
+      #Parameters for the feature changing sliders (speed and max frame count).
+      featureInfo = [[&#39;Choose Speed (fps)&#39;, 1, self.animations[self.animationChosen.get()].getSpeed(), self.speeds[self.animationChosen.get()], self.selAct], \
+         [&#39;Max Frame Count&#39;, 1, self.animations[self.animationChosen.get()].getNumFrames(), self.frameCnts[self.animationChosen.get()], self.selAct], \
+         [&#39;Effect (layer, frame, whole)&#39;, 0, 2, self.effects[self.animationChosen.get()], self.selAct]]
+      
+      return [posInfo, featureInfo]
+
+   def LEDSelectionSetup(self):
+      &#34;&#34;&#34;
+      Setup the selection of LEDs. A 5x5 (size of a matrix layer) button frame is presented. Based on the layer, animation, frame,
+         and color the values of the animations can be changed with a click. The change in the animations is reflected by the
+         color of these buttons.
+      &#34;&#34;&#34;
+      #Get the chosen matrix based on the chosen animation and chosen frame (matrix).
+      matrix = self.animations[self.animationChosen.get()].getFrame(self.frames[self.animationChosen.get()].get())
+      #Make a new btn layer.
+      self.currentBtnLayer = LEDLayer(self.btnFrame, matrix, self.colorChosen, self.layers[self.animationChosen.get()])
+      #Add the button layer to the button list. This makes it easier to destroy and rebuild later.
+      self.currentBtnLst[0] = self.currentBtnLayer.buttonLst
+
+   def selectActLam(self, animSelected: int):
+      &#34;&#34;&#34;
+      function handle, allows multiple buttons to have the same function with slightly different (preset) values.\n
+      parameters: animSelected, the animation that is being edited (int).\n
+      returns: function handle, a way to change the features of the animation being changed based on the variables set up\n
+         and animation edited so far (lambda).
+      &#34;&#34;&#34;
+      return lambda: self.selAnimAct(animSelected)
+   
+   def selAnimAct(self, animSelected: int):
+      &#34;&#34;&#34;
+      Definition of what happens when an animation is selected. It resets the sliders to the values they were when editing that
+         animation as well as changes the btn layer to the layer corresponding to the sliders.\n
+      parameters: animSelected, the animation being edited (int).
+      &#34;&#34;&#34;
+      #Remove the current btn layer.
+      self.currentBtnLayer.remove()
+
+      #update the chosen animation variable.
+      self.animationChosen.set(animSelected)
+
+      #get the scales from the information saved on the sliders (when the sliders were created).
+      scales = []
+      for strip in range(len(self.sliders.listofscaleFrame_sels)):
+         for scale in range(len(self.sliders.listofscaleFrame_sels[strip])):
+            scales.append(self.sliders.listofscaleFrame_sels[strip][scale][1])
+      
+      #Update the scales to how they were with the current animation.
+      scales[LAYER].set(self.layers[self.animationChosen.get()].get())
+      scales[FRAME].set(self.frames[self.animationChosen.get()].get())
+      scales[SPEED].set(self.speeds[self.animationChosen.get()].get())
+      scales[FRAMECNT].set(self.frameCnts[self.animationChosen.get()].get())
+      scales[EFFECT].set(self.effects[self.animationChosen.get()].get())
+
+      #find the chosen animation based on the list of animations.
+      chosenAnimation = self.animations[self.animationChosen.get()]
+      #Setup the layer corresponding to the layer information chosen.
+      self.setLayer(chosenAnimation, self.frames[self.animationChosen.get()].get())
+   
+   def selAct(self, selected: int):
+      &#34;&#34;&#34;
+      Very similar to the above method however it had a fundemental difference. One is that
+         it is called by sliders (which pass changed parameters so animSelected would be flagged
+         inapropriately), but also that the variable are updated based on the sliders rather than
+         the slider on the variables. Since one slider is being used for all three animations
+         (akward things happen if you try to delete and resetup the sliders due to the variables being attached)
+         the best course of action is to update the variables based on the sliders and then when the animation
+         changes, change the slider values to those animation dependent variables.\n
+      parameters: selected, the feature selected. Ghost parameter, not in use as it would require a seperate function\n
+         for each parameter. As seen in the description an adequate work arond was found.
+      &#34;&#34;&#34;
+      #Remove the current button layer.
+      self.currentBtnLayer.remove()
+
+      #get the scales from the information saved on the sliders (when the sliders were created).
+      scales = []
+      for strip in range(len(self.sliders.listofscaleFrame_sels)):
+         for scale in range(len(self.sliders.listofscaleFrame_sels[strip])):
+            scales.append(self.sliders.listofscaleFrame_sels[strip][scale][1])
+
+      #Update the variables for the animation depended variables based on the scale&#39;s current value.
+      #Update the layer variable based on the slider.
+      self.layers[self.animationChosen.get()].set(scales[LAYER].get())
+      #Update the maximum frame variable based on the slider.
+      self.frameCnts[self.animationChosen.get()].set(scales[FRAMECNT].get())
+      #Update the maximum effect variable based on the slider.
+      self.effects[self.animationChosen.get()].set(scales[EFFECT].get())
+
+      #Protect the user from moving the frame slider past the maximum value.
+      if scales[FRAME].get() &lt; scales[FRAMECNT].get():
+         #Update the frame variable based on the slider.
+         self.frames[self.animationChosen.get()].set(scales[FRAME].get())
+      else:
+         #Reset the slider to the maximum value if the user tried to take it past.
+         scales[FRAME].set(scales[FRAMECNT].get()-1)
+      
+      #Update speed variable based on the slider.
+      self.speeds[self.animationChosen.get()].set(scales[SPEED].get())
+      
+      #Make the chosen animation easily accessable.
+      chosenAnimation = self.animations[self.animationChosen.get()]
+      #Update the speed and maximum frame count of the chosen animation to the values stored in the variables updated above.
+      chosenAnimation.setSpeed(self.speeds[self.animationChosen.get()].get())
+      chosenAnimation.changeFrameCnt(self.frameCnts[self.animationChosen.get()].get())
+
+      #If the user is moving the maximum frame count below the frame selected,
+      #  move frame selected with it.
+      frameNum = 0
+      if chosenAnimation.getNumFrames() &lt;= self.frames[self.animationChosen.get()].get():
+         #The frame chosen must be the maximum frame possible (0 indexed list)
+         frameNum = chosenAnimation.getNumFrames() - 1
+      else:
+         #The frame chosen is just the value in the variable.
+         frameNum = self.frames[self.animationChosen.get()].get()
+      
+      #Update the layer based on the animation and frame number.
+      #Be warned that lowering the frame number will erase any custom frames in the animation after that point.
+      self.setLayer(chosenAnimation, frameNum)
+
+   def setLayer(self, chosenAnimation: IntVar, frameNum: int):
+      &#34;&#34;&#34;
+      Create a new layer based on the chosen values.\n
+      parameters: chosenAnimation, the animation that has been chosen (IntVar).\n
+                  frameNum, the frame (matrix) to select (int).
+      &#34;&#34;&#34;
+      #Make the chosen Matrix easy to access.
+      chosenMatrix = chosenAnimation.getFrame(frameNum)
+      #Create a new button layer.
+      self.currentBtnLayer = LEDLayer(self.btnFrame, chosenMatrix, self.colorChosen, self.layers[self.animationChosen.get()])
+      self.currentBtnLst[0] = self.currentBtnLayer.buttonLst</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="MultiWindow.MultiWindow.LEDSelectionSetup"><code class="name flex">
+<span>def <span class="ident">LEDSelectionSetup</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Setup the selection of LEDs. A 5x5 (size of a matrix layer) button frame is presented. Based on the layer, animation, frame,
+and color the values of the animations can be changed with a click. The change in the animations is reflected by the
+color of these buttons.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def LEDSelectionSetup(self):
+   &#34;&#34;&#34;
+   Setup the selection of LEDs. A 5x5 (size of a matrix layer) button frame is presented. Based on the layer, animation, frame,
+      and color the values of the animations can be changed with a click. The change in the animations is reflected by the
+      color of these buttons.
+   &#34;&#34;&#34;
+   #Get the chosen matrix based on the chosen animation and chosen frame (matrix).
+   matrix = self.animations[self.animationChosen.get()].getFrame(self.frames[self.animationChosen.get()].get())
+   #Make a new btn layer.
+   self.currentBtnLayer = LEDLayer(self.btnFrame, matrix, self.colorChosen, self.layers[self.animationChosen.get()])
+   #Add the button layer to the button list. This makes it easier to destroy and rebuild later.
+   self.currentBtnLst[0] = self.currentBtnLayer.buttonLst</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.advancedSettingOptions"><code class="name flex">
+<span>def <span class="ident">advancedSettingOptions</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set up an advanced setting window temporarily closing the main window. This setup process only needs
+to happen if this Secondary Window has not already been setup.</p>
+<p>As can be seen below the functionaliy of this is split into making a tab frame and then an action frame.</p>
+<p>The tab frame allows one to select an animation to modify, go to the basic settings window, or send the animation
+to the arduino (Submit)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def advancedSettingOptions(self):
+   &#34;&#34;&#34;
+   Set up an advanced setting window temporarily closing the main window. This setup process only needs
+      to happen if this Secondary Window has not already been setup.\n
+   As can be seen below the functionaliy of this is split into making a tab frame and then an action frame.\n
+      The tab frame allows one to select an animation to modify, go to the basic settings window, or send the animation
+      to the arduino (Submit)
+   &#34;&#34;&#34;
+   #If a window is not already setup. Make one.
+   if not self.secondaryWin:
+      #Make a top level window frame.
+      self.secondaryWin = Toplevel()
+      #If the user closes the GUI, exit the program.
+      self.secondaryWin.protocol(&#34;WM_DELETE_WINDOW&#34;, sys.exit)
+
+      #Setup the top button (tab) frame and action frame.
+      #The action frame is the main place where settings are changed.
+      tabFrame = Frame(self.secondaryWin)
+      actionFrame = Frame(self.secondaryWin)
+      tabFrame.pack(anchor = W)
+      actionFrame.pack(anchor = W)
+
+      #Allow easy access to the future btn pannel.
+      self.btnFrame = None
+      
+      #Setup 3 animation tabs. They are Animations whose matrix will be edited by changing the colors of the buttons.
+      for i in range(3):
+         Button(tabFrame, text =f&#34;Animation {i+4}&#34;, width = 12, command = self.selectActLam(i)).pack(side = LEFT)
+      Button(tabFrame, text=&#34;Play Animation&#34;, width = 12, command = self.playAnimationWindow).pack(side = LEFT)
+      #Allow the user to return to the original window.
+      Button(tabFrame, text=&#34;Basic Settings&#34;, width = 12, command=self.basicSettingOptions).pack(side = LEFT)
+      #Allow the user to submit the edited animations to the Arduino.
+      self.submitBtn = Button(tabFrame, text=&#34;Submit&#34;, bg = &#39;green&#39;, width = 12, command = self.sendAnimationsLam(self.animations))
+      self.submitBtn.pack(side = LEFT)
+
+      #Put the window in the top left so that no matter the os, it will show as best as possible.
+      self.secondaryWin.geometry(&#34;+0+0&#34;)
+      #Hide the main window.
+      self.master.withdraw()
+
+      #Remove the animation demo window.
+      if self.playWindow:
+         self.playWindow.destroy()
+         self.playWindow = None
+      
+      #Setup the action frame.
+      self.setupActionFrame(actionFrame)
+   else:
+      #If the secondary window has already been setup, then just show the secondary window and hide the main window.
+      #withdraw() turns the window into a hidden icon. deiconify() undoes this action.
+      self.secondaryWin.deiconify()
+      #if there is a play window, remove it.
+      if self.playWindow:
+         self.playWindow.destroy()
+         self.playWindow = None
+      self.master.withdraw()
+
+   self.submitBtn[&#39;state&#39;] = DISABLED if len(self.listOfComs) == 0 or self.comChosen.get() == -1 else NORMAL</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.basicSettingOptions"><code class="name flex">
+<span>def <span class="ident">basicSettingOptions</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Method for togling the visible window.</p>
+<p>Hides the secondary window and shows the primary window.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def basicSettingOptions(self):
+   &#34;&#34;&#34;
+   Method for togling the visible window.\n
+      Hides the secondary window and shows the primary window.
+   &#34;&#34;&#34;
+   self.secondaryWin.withdraw()
+   self.master.deiconify()</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.choiceLambda"><code class="name flex">
+<span>def <span class="ident">choiceLambda</span></span>(<span>self, num: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>function handle generator. This allows the buttons to use a command with a numeric input.</p>
+<p>parameters: num, the numeric representation of the user's choice.</p>
+<p>returns: a lambda, a function handle that can be run any time one of the determined buttons is clicked.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def choiceLambda(self, num: int):
+   &#34;&#34;&#34;
+   function handle generator. This allows the buttons to use a command with a numeric input.\n
+   parameters: num, the numeric representation of the user&#39;s choice.\n
+   returns: a lambda, a function handle that can be run any time one of the determined buttons is clicked.
+   &#34;&#34;&#34;
+   return lambda: self.displayChoice(num)</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.displayChoice"><code class="name flex">
+<span>def <span class="ident">displayChoice</span></span>(<span>self, num: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Let the user know what they did as well as let them know how to continue.</p>
+<p>parameters: num, the numeric representation of the user's choice.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def displayChoice(self, num: int):
+   &#34;&#34;&#34;
+   Let the user know what they did as well as let them know how to continue.\n
+   parameters: num, the numeric representation of the user&#39;s choice.
+   &#34;&#34;&#34;
+   #Send the value over the to arduino once the user closes the messagebox.
+   sendValToArd(num, self.listOfComs[self.comChosen.get()])</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.doAction"><code class="name flex">
+<span>def <span class="ident">doAction</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Fill the animation acording to the button checked. Update the layer buttons as well.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def doAction(self):
+   &#34;&#34;&#34;
+   Fill the animation acording to the button checked. Update the layer buttons as well.
+   &#34;&#34;&#34;
+   #Remove the current btn layer.
+   self.currentBtnLayer.remove()
+
+   #Execute the command on the current animation.
+   if self.effects[self.animationChosen.get()].get() == 0:
+      self.animations[self.animationChosen.get()].specialAnimations[self.commandChosen.get()][1](self.frames[self.animationChosen.get()].get(), self.layers[self.animationChosen.get()].get(), self.colorChosen.get())
+   elif self.effects[self.animationChosen.get()].get() == 1:
+      self.animations[self.animationChosen.get()].specialAnimations[self.commandChosen.get()][1](self.frames[self.animationChosen.get()].get(), self.colorChosen.get())
+   elif self.effects[self.animationChosen.get()].get() == 2:
+      self.animations[self.animationChosen.get()].specialAnimations[self.commandChosen.get()][1](self.colorChosen.get())
+
+   #find the chosen animation based on the list of animations.
+   chosenAnimation = self.animations[self.animationChosen.get()]
+   #Setup the layer corresponding to the layer information chosen.
+   self.setLayer(chosenAnimation, self.frames[self.animationChosen.get()].get())
+
+   self.commandChosen.set(-1)</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.findPort"><code class="name flex">
+<span>def <span class="ident">findPort</span></span>(<span>self, listOfComs: list)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>update the port and get the ports. Verbose mode is activated if a comport was chosen.</p>
+<p>Returns a function handle to be executed when check button is clicked. [funct1, funct2].</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def findPort(self, listOfComs: list):
+   &#34;&#34;&#34;
+   update the port and get the ports. Verbose mode is activated if a comport was chosen.\n
+   Returns a function handle to be executed when check button is clicked. [funct1, funct2].
+   &#34;&#34;&#34;
+   return lambda: [self.updateComFrame(), getPort(listOfComs[self.comChosen.get()], True if self.comChosen.get() &gt; -1 else False)]</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.getInfo"><code class="name flex">
+<span>def <span class="ident">getInfo</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve the information required for the sliders.</p>
+<p>It is setup in such a way that more of either type of slider can be added fairly simply.
+format of the parameters is: text (string), lo (int), hi (int), variable (needs .get() method), command (function handle).</p>
+<p>returns: info, a 2 element array of slider parameters.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getInfo(self):
+   &#34;&#34;&#34;
+   Retrieve the information required for the sliders.\n
+      It is setup in such a way that more of either type of slider can be added fairly simply.
+      format of the parameters is: text (string), lo (int), hi (int), variable (needs .get() method), command (function handle).\n
+   returns: info, a 2 element array of slider parameters.
+   &#34;&#34;&#34;
+   #Get the chosen matrix based on the chosen animation and chosen frame (matrix).
+   matrix = self.animations[self.animationChosen.get()].getFrame(self.frames[self.animationChosen.get()].get())
+   #Parameters for the info changing sliders (layer and frame).
+   posInfo = [[&#39;Choose Layer&#39;, 0, matrix.getzlen()-1, self.layers[self.animationChosen.get()], self.selAct], \
+      [&#39;Choose Frame&#39;, 0, self.animations[self.animationChosen.get()].getNumFrames()-1, self.frames[self.animationChosen.get()], self.selAct]]
+   
+   #Parameters for the feature changing sliders (speed and max frame count).
+   featureInfo = [[&#39;Choose Speed (fps)&#39;, 1, self.animations[self.animationChosen.get()].getSpeed(), self.speeds[self.animationChosen.get()], self.selAct], \
+      [&#39;Max Frame Count&#39;, 1, self.animations[self.animationChosen.get()].getNumFrames(), self.frameCnts[self.animationChosen.get()], self.selAct], \
+      [&#39;Effect (layer, frame, whole)&#39;, 0, 2, self.effects[self.animationChosen.get()], self.selAct]]
+   
+   return [posInfo, featureInfo]</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.playAnimationWindow"><code class="name flex">
+<span>def <span class="ident">playAnimationWindow</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create a play Animation window.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def playAnimationWindow(self):
+   &#34;&#34;&#34;
+   Create a play Animation window.
+   &#34;&#34;&#34;   
+   #Create, title, place, and define closing behavior.
+   self.playWindow = Toplevel()
+   self.playWindow.title(&#34;Animation Demo&#34;)
+   self.playWindow.geometry(&#34;+0+0&#34;)
+   self.playWindow.protocol(&#34;WM_DELETE_WINDOW&#34;, sys.exit)
+
+   #Hide the secondary window.
+   self.secondaryWin.withdraw()
+
+   #Show the display window, with ability to go back to secondary window.
+   Display(self.playWindow, self.animations[self.animationChosen.get()], [&#34;Advanced Settings&#34;, self.advancedSettingOptions])</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.selAct"><code class="name flex">
+<span>def <span class="ident">selAct</span></span>(<span>self, selected: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Very similar to the above method however it had a fundemental difference. One is that
+it is called by sliders (which pass changed parameters so animSelected would be flagged
+inapropriately), but also that the variable are updated based on the sliders rather than
+the slider on the variables. Since one slider is being used for all three animations
+(akward things happen if you try to delete and resetup the sliders due to the variables being attached)
+the best course of action is to update the variables based on the sliders and then when the animation
+changes, change the slider values to those animation dependent variables.</p>
+<p>parameters: selected, the feature selected. Ghost parameter, not in use as it would require a seperate function</p>
+<p>for each parameter. As seen in the description an adequate work arond was found.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def selAct(self, selected: int):
+   &#34;&#34;&#34;
+   Very similar to the above method however it had a fundemental difference. One is that
+      it is called by sliders (which pass changed parameters so animSelected would be flagged
+      inapropriately), but also that the variable are updated based on the sliders rather than
+      the slider on the variables. Since one slider is being used for all three animations
+      (akward things happen if you try to delete and resetup the sliders due to the variables being attached)
+      the best course of action is to update the variables based on the sliders and then when the animation
+      changes, change the slider values to those animation dependent variables.\n
+   parameters: selected, the feature selected. Ghost parameter, not in use as it would require a seperate function\n
+      for each parameter. As seen in the description an adequate work arond was found.
+   &#34;&#34;&#34;
+   #Remove the current button layer.
+   self.currentBtnLayer.remove()
+
+   #get the scales from the information saved on the sliders (when the sliders were created).
+   scales = []
+   for strip in range(len(self.sliders.listofscaleFrame_sels)):
+      for scale in range(len(self.sliders.listofscaleFrame_sels[strip])):
+         scales.append(self.sliders.listofscaleFrame_sels[strip][scale][1])
+
+   #Update the variables for the animation depended variables based on the scale&#39;s current value.
+   #Update the layer variable based on the slider.
+   self.layers[self.animationChosen.get()].set(scales[LAYER].get())
+   #Update the maximum frame variable based on the slider.
+   self.frameCnts[self.animationChosen.get()].set(scales[FRAMECNT].get())
+   #Update the maximum effect variable based on the slider.
+   self.effects[self.animationChosen.get()].set(scales[EFFECT].get())
+
+   #Protect the user from moving the frame slider past the maximum value.
+   if scales[FRAME].get() &lt; scales[FRAMECNT].get():
+      #Update the frame variable based on the slider.
+      self.frames[self.animationChosen.get()].set(scales[FRAME].get())
+   else:
+      #Reset the slider to the maximum value if the user tried to take it past.
+      scales[FRAME].set(scales[FRAMECNT].get()-1)
+   
+   #Update speed variable based on the slider.
+   self.speeds[self.animationChosen.get()].set(scales[SPEED].get())
+   
+   #Make the chosen animation easily accessable.
+   chosenAnimation = self.animations[self.animationChosen.get()]
+   #Update the speed and maximum frame count of the chosen animation to the values stored in the variables updated above.
+   chosenAnimation.setSpeed(self.speeds[self.animationChosen.get()].get())
+   chosenAnimation.changeFrameCnt(self.frameCnts[self.animationChosen.get()].get())
+
+   #If the user is moving the maximum frame count below the frame selected,
+   #  move frame selected with it.
+   frameNum = 0
+   if chosenAnimation.getNumFrames() &lt;= self.frames[self.animationChosen.get()].get():
+      #The frame chosen must be the maximum frame possible (0 indexed list)
+      frameNum = chosenAnimation.getNumFrames() - 1
+   else:
+      #The frame chosen is just the value in the variable.
+      frameNum = self.frames[self.animationChosen.get()].get()
+   
+   #Update the layer based on the animation and frame number.
+   #Be warned that lowering the frame number will erase any custom frames in the animation after that point.
+   self.setLayer(chosenAnimation, frameNum)</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.selAnimAct"><code class="name flex">
+<span>def <span class="ident">selAnimAct</span></span>(<span>self, animSelected: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Definition of what happens when an animation is selected. It resets the sliders to the values they were when editing that
+animation as well as changes the btn layer to the layer corresponding to the sliders.</p>
+<p>parameters: animSelected, the animation being edited (int).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def selAnimAct(self, animSelected: int):
+   &#34;&#34;&#34;
+   Definition of what happens when an animation is selected. It resets the sliders to the values they were when editing that
+      animation as well as changes the btn layer to the layer corresponding to the sliders.\n
+   parameters: animSelected, the animation being edited (int).
+   &#34;&#34;&#34;
+   #Remove the current btn layer.
+   self.currentBtnLayer.remove()
+
+   #update the chosen animation variable.
+   self.animationChosen.set(animSelected)
+
+   #get the scales from the information saved on the sliders (when the sliders were created).
+   scales = []
+   for strip in range(len(self.sliders.listofscaleFrame_sels)):
+      for scale in range(len(self.sliders.listofscaleFrame_sels[strip])):
+         scales.append(self.sliders.listofscaleFrame_sels[strip][scale][1])
+   
+   #Update the scales to how they were with the current animation.
+   scales[LAYER].set(self.layers[self.animationChosen.get()].get())
+   scales[FRAME].set(self.frames[self.animationChosen.get()].get())
+   scales[SPEED].set(self.speeds[self.animationChosen.get()].get())
+   scales[FRAMECNT].set(self.frameCnts[self.animationChosen.get()].get())
+   scales[EFFECT].set(self.effects[self.animationChosen.get()].get())
+
+   #find the chosen animation based on the list of animations.
+   chosenAnimation = self.animations[self.animationChosen.get()]
+   #Setup the layer corresponding to the layer information chosen.
+   self.setLayer(chosenAnimation, self.frames[self.animationChosen.get()].get())</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.selectActLam"><code class="name flex">
+<span>def <span class="ident">selectActLam</span></span>(<span>self, animSelected: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>function handle, allows multiple buttons to have the same function with slightly different (preset) values.</p>
+<p>parameters: animSelected, the animation that is being edited (int).</p>
+<p>returns: function handle, a way to change the features of the animation being changed based on the variables set up</p>
+<p>and animation edited so far (lambda).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def selectActLam(self, animSelected: int):
+   &#34;&#34;&#34;
+   function handle, allows multiple buttons to have the same function with slightly different (preset) values.\n
+   parameters: animSelected, the animation that is being edited (int).\n
+   returns: function handle, a way to change the features of the animation being changed based on the variables set up\n
+      and animation edited so far (lambda).
+   &#34;&#34;&#34;
+   return lambda: self.selAnimAct(animSelected)</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.sendAnimationsLam"><code class="name flex">
+<span>def <span class="ident">sendAnimationsLam</span></span>(<span>self, animations: list)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>function handle generator. This allows one function to control multiple events via a parameter.</p>
+<p>parameters: animation, the number attached to the animation button clicked.</p>
+<p>returns: a lambda, a function handle that can be run any time, with the preset value.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sendAnimationsLam(self, animations: list):
+   &#34;&#34;&#34;
+   function handle generator. This allows one function to control multiple events via a parameter.\n
+   parameters: animation, the number attached to the animation button clicked.\n
+   returns: a lambda, a function handle that can be run any time, with the preset value.
+   &#34;&#34;&#34;
+   return lambda: animationsForHeader(animations, self.listOfComs[self.comChosen.get()])</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.setLayer"><code class="name flex">
+<span>def <span class="ident">setLayer</span></span>(<span>self, chosenAnimation: tkinter.IntVar, frameNum: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create a new layer based on the chosen values.</p>
+<p>parameters: chosenAnimation, the animation that has been chosen (IntVar).</p>
+<pre><code>        frameNum, the frame (matrix) to select (int).
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setLayer(self, chosenAnimation: IntVar, frameNum: int):
+   &#34;&#34;&#34;
+   Create a new layer based on the chosen values.\n
+   parameters: chosenAnimation, the animation that has been chosen (IntVar).\n
+               frameNum, the frame (matrix) to select (int).
+   &#34;&#34;&#34;
+   #Make the chosen Matrix easy to access.
+   chosenMatrix = chosenAnimation.getFrame(frameNum)
+   #Create a new button layer.
+   self.currentBtnLayer = LEDLayer(self.btnFrame, chosenMatrix, self.colorChosen, self.layers[self.animationChosen.get()])
+   self.currentBtnLst[0] = self.currentBtnLayer.buttonLst</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.setupActionFrame"><code class="name flex">
+<span>def <span class="ident">setupActionFrame</span></span>(<span>self, actionFrame: tkinter.Frame)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets up the frame in the secondary window where the user makes all the edits.</p>
+<p>parameters: actionFrame, the frame to be used for the action frame.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setupActionFrame(self, actionFrame: Frame):
+   &#34;&#34;&#34;
+   Sets up the frame in the secondary window where the user makes all the edits.\n
+   parameters: actionFrame, the frame to be used for the action frame.
+   &#34;&#34;&#34;
+   #Save the frame used for the buttons (changes every time one of the settings changes).
+   self.btnFrame = Frame(actionFrame)
+   #Make a frame for the color selection frame.
+   colorSelFrame = Frame(actionFrame)
+   #make a command frame for the far right.
+   commandSelFrame = Frame(actionFrame)
+
+   #Put the frames on the window with some asthetic intent.
+   colorSelFrame.pack(side = LEFT, fill = Y)
+   self.btnFrame.pack(side = LEFT, fill = BOTH)
+   commandSelFrame.pack(side = LEFT, fill = Y)
+
+   #Make the slider frames and let them be accessessable elsewhere.
+   self.sliders = SliderFrames(self.btnFrame, self.getInfo())
+
+   #Setup the button layer functionality.
+   self.LEDSelectionSetup()
+
+   #Setup a color selection bar which enable/disable the buttons as well as allow you to click the buttons until the user decides
+   #to change color.
+   CheckButtonBar(colorSelFrame, self.currentBtnLst, &#39;Possible Colors&#39;, self.colorChosen)
+
+   #Add a check list for the right side of the gui.
+   listOfCommands = self.animations[self.animationChosen.get()].specialAnimations
+   CheckButtonBar(commandSelFrame, None, &#39;Choose a Command&#39;, self.commandChosen, self.doAction, len(listOfCommands), np.array(listOfCommands)[:, 0].tolist())</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.setupMainWindow"><code class="name flex">
+<span>def <span class="ident">setupMainWindow</span></span>(<span>self, basic)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets up the main window. The main wondow contains 6 windows in a 2*3 grid of buttons.</p>
+<p>The 6 buttons send a number to a function to be used by the Arduino Interface.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setupMainWindow(self, basic):
+   &#34;&#34;&#34;
+   Sets up the main window. The main wondow contains 6 windows in a 2*3 grid of buttons.\n
+   The 6 buttons send a number to a function to be used by the Arduino Interface.
+   &#34;&#34;&#34;
+   #Keep track of the button number.
+   counter = 0
+   #Make 2 rows.
+   for i in range(2):
+      #Make 3 columns.
+      for j in range(3):
+         #Create uniform buttons with a function handle that allows for a number to be passed every time it is called.
+         self.sendBtns.append(Button(basic, text =f&#34;Animation {counter+1}&#34;, width = 15, height = 1, command = self.choiceLambda(counter)))
+         self.sendBtns[counter].grid(row = i, column = j)
+         if len(self.listOfComs) == 0 or self.comChosen.get() == -1:
+            self.sendBtns[counter][&#39;state&#39;] = DISABLED
+         counter += 1</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.updateComDependentBtns"><code class="name flex">
+<span>def <span class="ident">updateComDependentBtns</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>update the sending buttons based on whether a com is chosen.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def updateComDependentBtns(self):
+   &#34;&#34;&#34;
+   update the sending buttons based on whether a com is chosen.
+   &#34;&#34;&#34;
+   #Activate for selected, Disabled if not.
+   val = NORMAL if len(self.listOfComs) &gt; 0 and self.comChosen.get() != -1 else DISABLED
+
+   #Update the buttons based on their functionality.
+   for i in range(len(self.sendBtns)):
+      self.sendBtns[i][&#39;state&#39;] = val
+   if self.submitBtn:
+      self.submitBtn[&#39;state&#39;] = val</code></pre>
+</details>
+</dd>
+<dt id="MultiWindow.MultiWindow.updateComFrame"><code class="name flex">
+<span>def <span class="ident">updateComFrame</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Update the com frame.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def updateComFrame(self):
+   &#34;&#34;&#34;
+   Update the com frame.
+   &#34;&#34;&#34;
+   #Destroy the com frame if it exists.
+   if self.comFrame:
+      self.comFrame.destroy()
+
+   #Find the descriptions of the available ports.      
+   self.listOfComs = getDescriptions()
+   #If there aren&#39;t any coms, remove chosen com.
+   if len(self.listOfComs) == 0:
+      self.comChosen.set(-1)
+   
+   #Make a frame for the com. Put it at the far right. Shape it based number of coms available.
+   self.comFrame = Frame(self.master)
+   self.comFrame.grid(row = 0, column=3, rowspan = len(self.listOfComs) if len(self.listOfComs) &gt; 3 else 3, sticky = N)
+
+   #Update the buttons.
+   self.updateComDependentBtns()
+
+   #make the button list.
+   self.comChecks = CheckButtonBar(self.comFrame, None, &#39;Select a COM&#39;, self.comChosen, self.findPort(self.listOfComs), len(self.listOfComs), self.listOfComs, -2)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="MultiWindow.MultiWindow" href="#MultiWindow.MultiWindow">MultiWindow</a></code></h4>
+<ul class="">
+<li><code><a title="MultiWindow.MultiWindow.LEDSelectionSetup" href="#MultiWindow.MultiWindow.LEDSelectionSetup">LEDSelectionSetup</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.advancedSettingOptions" href="#MultiWindow.MultiWindow.advancedSettingOptions">advancedSettingOptions</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.basicSettingOptions" href="#MultiWindow.MultiWindow.basicSettingOptions">basicSettingOptions</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.choiceLambda" href="#MultiWindow.MultiWindow.choiceLambda">choiceLambda</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.displayChoice" href="#MultiWindow.MultiWindow.displayChoice">displayChoice</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.doAction" href="#MultiWindow.MultiWindow.doAction">doAction</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.findPort" href="#MultiWindow.MultiWindow.findPort">findPort</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.getInfo" href="#MultiWindow.MultiWindow.getInfo">getInfo</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.playAnimationWindow" href="#MultiWindow.MultiWindow.playAnimationWindow">playAnimationWindow</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.selAct" href="#MultiWindow.MultiWindow.selAct">selAct</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.selAnimAct" href="#MultiWindow.MultiWindow.selAnimAct">selAnimAct</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.selectActLam" href="#MultiWindow.MultiWindow.selectActLam">selectActLam</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.sendAnimationsLam" href="#MultiWindow.MultiWindow.sendAnimationsLam">sendAnimationsLam</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.setLayer" href="#MultiWindow.MultiWindow.setLayer">setLayer</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.setupActionFrame" href="#MultiWindow.MultiWindow.setupActionFrame">setupActionFrame</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.setupMainWindow" href="#MultiWindow.MultiWindow.setupMainWindow">setupMainWindow</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.updateComDependentBtns" href="#MultiWindow.MultiWindow.updateComDependentBtns">updateComDependentBtns</a></code></li>
+<li><code><a title="MultiWindow.MultiWindow.updateComFrame" href="#MultiWindow.MultiWindow.updateComFrame">updateComFrame</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

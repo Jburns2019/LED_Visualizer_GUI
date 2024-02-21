@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>Animation API documentation</title>
+<meta name="description" content="Author: John Burns …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Animation</code></h1>
+</header>
+<section id="section-intro">
+<p>Author: John Burns</p>
+<p>Last Modified: 5/27/2021</p>
+<p>OSU Email Address: burnsjo@oregonstate.edu</p>
+<p>Course Number ECE 342</p>
+<p>Project: LED Visualizer Group 2</p>
+<p>Due Date: 5/28/2021</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Author: John Burns\n
+Last Modified: 5/27/2021\n
+OSU Email Address: burnsjo@oregonstate.edu\n
+Course Number ECE 342\n
+Project: LED Visualizer Group 2\n
+Due Date: 5/28/2021
+&#34;&#34;&#34;
+
+from Matrix import LEDMatrix
+import random
+from Colors import *
+
+class Animation:
+    &#34;&#34;&#34;
+    The definition for how an Animation can be defined.\n
+        Animations are lists of LEDMatrices with an adjustable frame count and speed.
+        You can add animation filler functions at the end and then add them to the special Animations list.
+    3 constructors\n
+        Animation(x, y, z, lim, frameCnt, speed)
+            x, number of columns in an LEDMatrix (int).
+            y, number of rows in an LEDMatrix (int).
+            z, number of layers in an LEDMatrix (int).
+            lim, maximum allowable value (int).
+            frameCnt, number of frames (int).
+            speed, speed of the animation in fps (int).\n
+        Animation(frameCnt, speed)
+            Default Matrix() constructor (5x5x7) with a lim of 63.
+            frameCnt, number of frames (int).
+            speed, speed of the animation in fps (int).\n
+        Animation()
+            Default Matrix() constructor (5x5x7) with a lim of 63.
+            Default frameCnt of 30.
+            Default speed of 20.
+    &#34;&#34;&#34;
+    def __init__(self, *args):
+        #Full parameter list.
+        if len(args) == 6:
+            x, y, z, lim, frameCnt, speed = args
+            self.animation = [LEDMatrix(x, y, z, lim) for frame in range(frameCnt)]
+            self.frameCnt = frameCnt
+            self.viewable = self.frameCnt
+            self.speed = speed
+        #Default matrix with custom speed and frame count.
+        elif len(args) == 2:
+            frameCnt, speed = args
+            self.animation = [LEDMatrix() for frame in range(frameCnt)]
+            self.frameCnt = frameCnt
+            self.viewable = self.frameCnt
+            self.speed = speed
+        #Default animation.
+        elif len(args) == 0:
+            self.animation = [LEDMatrix() for frame in range(30)]
+            self.frameCnt = 30
+            self.viewable = self.frameCnt
+            self.speed = 30
+        
+        #Easy way for coder to add more custom animations.
+        self.specialAnimations = []
+        self.specialAnimations.append([&#34;Sequential&#34;, self.seq])
+        self.specialAnimations.append([&#34;Random&#34;, self.rand])
+        self.specialAnimations.append([&#34;Set Color&#34;, self.solid])
+        self.specialAnimations.append([&#34;Clear&#34;, self.clear])
+
+    def getNumFrames(self):
+        &#34;&#34;&#34;
+        Method for getting number of frames.\n
+        returns: viewable, the effective number of available frames an animation has (int).
+        &#34;&#34;&#34;
+        return self.viewable
+    
+    def setSpeed(self, speed: int):
+        &#34;&#34;&#34;
+        Method for changing the speed of an animation.\n
+        parameters: speed, the speed to run the animation at (in fps, int).
+        &#34;&#34;&#34;
+        self.speed = speed
+
+    def getSpeed(self):
+        &#34;&#34;&#34;
+        Method for getting the Animation&#39;s speed.\n
+        returns: speed, the Animations current speed (int).
+        &#34;&#34;&#34;
+        return self.speed
+
+    def setFrame(self, frame: int, matrix: LEDMatrix):
+        &#34;&#34;&#34;
+        Method for adjusting the number of frames.\n
+        parameters: frame, the matrix to edit (int).\n
+                    matrix, the matrix to replace the current matrix with (Matrix).
+        &#34;&#34;&#34;
+        self.animation[frame] = matrix
+
+    def getFrame(self, frame: int):
+        &#34;&#34;&#34;
+        Method for getting a frame from the Animation.\n
+        parameters: frame, the frame of interest (int).\n
+        returns: matrix, the Matrix at the given frame (Matrix).
+        &#34;&#34;&#34;
+        return self.animation[frame]
+    
+    def changeFrameCnt(self, newFrameCnt: int):
+        &#34;&#34;&#34;
+        Method for adjusting the number of frames in an Animation.\n
+        parameters: newFrameCnt, the desired frame count for the Animation (int).
+        &#34;&#34;&#34;
+        self.viewable = newFrameCnt
+
+    def clear(self, *args):
+        &#34;&#34;&#34;
+        Method for clearing the animation.\n
+            set effected part&#39;s LEDs to off.\n
+        parameters: args -&gt; frame, layer, val (layer effect, val doesn&#39;t matter)\n
+                            frame, val (frame effect, val doesn&#39;t matter)
+                            val (whole animation, val doesn&#39;t matter)
+        &#34;&#34;&#34;
+        args = list(args)
+        args[-1] = 0
+        self.fill(args)
+    
+    def seq(self, *args):
+        &#34;&#34;&#34; 
+        Making sequential colors on animation.\n
+            set effected part to colors in a sequential order.\n
+        parameters: args -&gt; frame, layer, val (layer effect, val doesn&#39;t matter)\n
+                            frame, val (frame effect, val doesn&#39;t matter)
+                            val (whole animation, val doesn&#39;t matter)
+        &#34;&#34;&#34;
+        args = list(args)
+
+        #give special arguement value, unreachable otherwise.
+        args[-1] = -3
+
+        self.fill(args)
+
+    def rand(self, *args):
+        &#34;&#34;&#34; 
+        Customized method for adding random colors.\n
+            set effected part to random color values.\n
+        parameters: args -&gt; frame, layer, val (layer effect, val doesn&#39;t matter)\n
+                            frame, val (frame effect, val doesn&#39;t matter)
+                            val (whole animation, val doesn&#39;t matter)
+        &#34;&#34;&#34;
+        args = list(args)
+
+        #give special arguement value, unreachable otherwise.
+        args[-1] = -2
+
+        self.fill(args)
+
+    def solid(self, *args):
+        &#34;&#34;&#34;
+        Custom method for adding solid color.\n
+            set effected part to the decided color.\n
+        parameters: args -&gt; frame, layer, color (layer effect)\n
+                            frame, color (frame effect)
+                            color (whole animation)
+        &#34;&#34;&#34;
+        self.fill(list(args))
+
+    def fill(self, args:list):
+        &#34;&#34;&#34;
+        Modular function for setting\n
+        parameters: args -&gt; frame, layer, val (layer effect)\n
+                            frame, val (frame effect)
+                            val (whole animation)\n
+            val may be of the color dictionary or a specific value that has meaning
+                -2: random
+                -3: sequential
+        &#34;&#34;&#34;
+        #Choose frame length based on the parameter list.
+        frameLen = self.getNumFrames()
+        if len(args) &gt; 1:
+            frameLen = args[0]
+        
+        counter = 0
+
+        lower = frameLen if len(args) &gt; 1 else 0
+        upper = frameLen+1 if len(args) &gt; 1 else frameLen
+        for frame in range(lower, upper):
+            matrix = self.getFrame(frame)
+
+            #Choose layer count based on the parameter list.
+            layerCnt = matrix.getzlen()
+            if len(args) &gt; 2:
+                layerCnt = args[1]
+
+            lower = layerCnt if len(args) &gt; 2 else 0
+            upper = layerCnt+1 if len(args) &gt; 2 else layerCnt
+            for layer in range(lower, upper):
+                for y in range(matrix.getylen()):
+                    for x in range(matrix.getxlen()):
+                        #Choose method of filling based on specialized parameter values.
+                        #-1 means no color has been selected (bad state).
+                        if args[-1] == -2:
+                            matrix.setVal(x, y, layer, random.choice(list(HexColors.values())))
+                        
+                        elif args[-1] == -3:
+                            matrix.setVal(x, y, layer, list(HexColors.values())[counter])
+                            
+                            #Reset the counter when it hits max.
+                            if counter &lt; len(list(HexColors.values())) - 1:
+                                counter += 1
+                            else:
+                                counter = 0
+                        
+                        elif args[-1] &gt;= 0:
+                            matrix.setVal(x, y, layer, args[-1])
+
+    def toString(self):
+        &#34;&#34;&#34;
+        Intelligent stringification of the class.\n
+            Shows frame by frame of the Matrices which are layer by layer.\n
+        returns: outStr, the out come of the work (string).
+        &#34;&#34;&#34;
+        outStr = &#34;&#34;
+
+        for frame in range(self.viewable):
+            outStr += self.animation[frame].toString()
+            if frame &lt; self.viewable - 1:
+                outStr += &#39;&#39;.join([&#39;-&#39; for i  in range(4 * (self.animation[frame].getxlen()-1) + 1)])
+                outStr += &#34;\n&#34;
+        
+        return outStr
+
+    def __str__(self):
+        &#34;&#34;&#34;
+        Overwrite the default string for the class, by showing good information.
+        &#34;&#34;&#34;
+        return self.toString()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="Animation.Animation"><code class="flex name class">
+<span>class <span class="ident">Animation</span></span>
+<span>(</span><span>*args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The definition for how an Animation can be defined.</p>
+<pre><code>Animations are lists of LEDMatrices with an adjustable frame count and speed.
+You can add animation filler functions at the end and then add them to the special Animations list.
+</code></pre>
+<p>3 constructors</p>
+<pre><code>Animation(x, y, z, lim, frameCnt, speed)
+    x, number of columns in an LEDMatrix (int).
+    y, number of rows in an LEDMatrix (int).
+    z, number of layers in an LEDMatrix (int).
+    lim, maximum allowable value (int).
+    frameCnt, number of frames (int).
+    speed, speed of the animation in fps (int).
+
+Animation(frameCnt, speed)
+    Default Matrix() constructor (5x5x7) with a lim of 63.
+    frameCnt, number of frames (int).
+    speed, speed of the animation in fps (int).
+
+Animation()
+    Default Matrix() constructor (5x5x7) with a lim of 63.
+    Default frameCnt of 30.
+    Default speed of 20.
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Animation:
+    &#34;&#34;&#34;
+    The definition for how an Animation can be defined.\n
+        Animations are lists of LEDMatrices with an adjustable frame count and speed.
+        You can add animation filler functions at the end and then add them to the special Animations list.
+    3 constructors\n
+        Animation(x, y, z, lim, frameCnt, speed)
+            x, number of columns in an LEDMatrix (int).
+            y, number of rows in an LEDMatrix (int).
+            z, number of layers in an LEDMatrix (int).
+            lim, maximum allowable value (int).
+            frameCnt, number of frames (int).
+            speed, speed of the animation in fps (int).\n
+        Animation(frameCnt, speed)
+            Default Matrix() constructor (5x5x7) with a lim of 63.
+            frameCnt, number of frames (int).
+            speed, speed of the animation in fps (int).\n
+        Animation()
+            Default Matrix() constructor (5x5x7) with a lim of 63.
+            Default frameCnt of 30.
+            Default speed of 20.
+    &#34;&#34;&#34;
+    def __init__(self, *args):
+        #Full parameter list.
+        if len(args) == 6:
+            x, y, z, lim, frameCnt, speed = args
+            self.animation = [LEDMatrix(x, y, z, lim) for frame in range(frameCnt)]
+            self.frameCnt = frameCnt
+            self.viewable = self.frameCnt
+            self.speed = speed
+        #Default matrix with custom speed and frame count.
+        elif len(args) == 2:
+            frameCnt, speed = args
+            self.animation = [LEDMatrix() for frame in range(frameCnt)]
+            self.frameCnt = frameCnt
+            self.viewable = self.frameCnt
+            self.speed = speed
+        #Default animation.
+        elif len(args) == 0:
+            self.animation = [LEDMatrix() for frame in range(30)]
+            self.frameCnt = 30
+            self.viewable = self.frameCnt
+            self.speed = 30
+        
+        #Easy way for coder to add more custom animations.
+        self.specialAnimations = []
+        self.specialAnimations.append([&#34;Sequential&#34;, self.seq])
+        self.specialAnimations.append([&#34;Random&#34;, self.rand])
+        self.specialAnimations.append([&#34;Set Color&#34;, self.solid])
+        self.specialAnimations.append([&#34;Clear&#34;, self.clear])
+
+    def getNumFrames(self):
+        &#34;&#34;&#34;
+        Method for getting number of frames.\n
+        returns: viewable, the effective number of available frames an animation has (int).
+        &#34;&#34;&#34;
+        return self.viewable
+    
+    def setSpeed(self, speed: int):
+        &#34;&#34;&#34;
+        Method for changing the speed of an animation.\n
+        parameters: speed, the speed to run the animation at (in fps, int).
+        &#34;&#34;&#34;
+        self.speed = speed
+
+    def getSpeed(self):
+        &#34;&#34;&#34;
+        Method for getting the Animation&#39;s speed.\n
+        returns: speed, the Animations current speed (int).
+        &#34;&#34;&#34;
+        return self.speed
+
+    def setFrame(self, frame: int, matrix: LEDMatrix):
+        &#34;&#34;&#34;
+        Method for adjusting the number of frames.\n
+        parameters: frame, the matrix to edit (int).\n
+                    matrix, the matrix to replace the current matrix with (Matrix).
+        &#34;&#34;&#34;
+        self.animation[frame] = matrix
+
+    def getFrame(self, frame: int):
+        &#34;&#34;&#34;
+        Method for getting a frame from the Animation.\n
+        parameters: frame, the frame of interest (int).\n
+        returns: matrix, the Matrix at the given frame (Matrix).
+        &#34;&#34;&#34;
+        return self.animation[frame]
+    
+    def changeFrameCnt(self, newFrameCnt: int):
+        &#34;&#34;&#34;
+        Method for adjusting the number of frames in an Animation.\n
+        parameters: newFrameCnt, the desired frame count for the Animation (int).
+        &#34;&#34;&#34;
+        self.viewable = newFrameCnt
+
+    def clear(self, *args):
+        &#34;&#34;&#34;
+        Method for clearing the animation.\n
+            set effected part&#39;s LEDs to off.\n
+        parameters: args -&gt; frame, layer, val (layer effect, val doesn&#39;t matter)\n
+                            frame, val (frame effect, val doesn&#39;t matter)
+                            val (whole animation, val doesn&#39;t matter)
+        &#34;&#34;&#34;
+        args = list(args)
+        args[-1] = 0
+        self.fill(args)
+    
+    def seq(self, *args):
+        &#34;&#34;&#34; 
+        Making sequential colors on animation.\n
+            set effected part to colors in a sequential order.\n
+        parameters: args -&gt; frame, layer, val (layer effect, val doesn&#39;t matter)\n
+                            frame, val (frame effect, val doesn&#39;t matter)
+                            val (whole animation, val doesn&#39;t matter)
+        &#34;&#34;&#34;
+        args = list(args)
+
+        #give special arguement value, unreachable otherwise.
+        args[-1] = -3
+
+        self.fill(args)
+
+    def rand(self, *args):
+        &#34;&#34;&#34; 
+        Customized method for adding random colors.\n
+            set effected part to random color values.\n
+        parameters: args -&gt; frame, layer, val (layer effect, val doesn&#39;t matter)\n
+                            frame, val (frame effect, val doesn&#39;t matter)
+                            val (whole animation, val doesn&#39;t matter)
+        &#34;&#34;&#34;
+        args = list(args)
+
+        #give special arguement value, unreachable otherwise.
+        args[-1] = -2
+
+        self.fill(args)
+
+    def solid(self, *args):
+        &#34;&#34;&#34;
+        Custom method for adding solid color.\n
+            set effected part to the decided color.\n
+        parameters: args -&gt; frame, layer, color (layer effect)\n
+                            frame, color (frame effect)
+                            color (whole animation)
+        &#34;&#34;&#34;
+        self.fill(list(args))
+
+    def fill(self, args:list):
+        &#34;&#34;&#34;
+        Modular function for setting\n
+        parameters: args -&gt; frame, layer, val (layer effect)\n
+                            frame, val (frame effect)
+                            val (whole animation)\n
+            val may be of the color dictionary or a specific value that has meaning
+                -2: random
+                -3: sequential
+        &#34;&#34;&#34;
+        #Choose frame length based on the parameter list.
+        frameLen = self.getNumFrames()
+        if len(args) &gt; 1:
+            frameLen = args[0]
+        
+        counter = 0
+
+        lower = frameLen if len(args) &gt; 1 else 0
+        upper = frameLen+1 if len(args) &gt; 1 else frameLen
+        for frame in range(lower, upper):
+            matrix = self.getFrame(frame)
+
+            #Choose layer count based on the parameter list.
+            layerCnt = matrix.getzlen()
+            if len(args) &gt; 2:
+                layerCnt = args[1]
+
+            lower = layerCnt if len(args) &gt; 2 else 0
+            upper = layerCnt+1 if len(args) &gt; 2 else layerCnt
+            for layer in range(lower, upper):
+                for y in range(matrix.getylen()):
+                    for x in range(matrix.getxlen()):
+                        #Choose method of filling based on specialized parameter values.
+                        #-1 means no color has been selected (bad state).
+                        if args[-1] == -2:
+                            matrix.setVal(x, y, layer, random.choice(list(HexColors.values())))
+                        
+                        elif args[-1] == -3:
+                            matrix.setVal(x, y, layer, list(HexColors.values())[counter])
+                            
+                            #Reset the counter when it hits max.
+                            if counter &lt; len(list(HexColors.values())) - 1:
+                                counter += 1
+                            else:
+                                counter = 0
+                        
+                        elif args[-1] &gt;= 0:
+                            matrix.setVal(x, y, layer, args[-1])
+
+    def toString(self):
+        &#34;&#34;&#34;
+        Intelligent stringification of the class.\n
+            Shows frame by frame of the Matrices which are layer by layer.\n
+        returns: outStr, the out come of the work (string).
+        &#34;&#34;&#34;
+        outStr = &#34;&#34;
+
+        for frame in range(self.viewable):
+            outStr += self.animation[frame].toString()
+            if frame &lt; self.viewable - 1:
+                outStr += &#39;&#39;.join([&#39;-&#39; for i  in range(4 * (self.animation[frame].getxlen()-1) + 1)])
+                outStr += &#34;\n&#34;
+        
+        return outStr
+
+    def __str__(self):
+        &#34;&#34;&#34;
+        Overwrite the default string for the class, by showing good information.
+        &#34;&#34;&#34;
+        return self.toString()</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="Animation.Animation.changeFrameCnt"><code class="name flex">
+<span>def <span class="ident">changeFrameCnt</span></span>(<span>self, newFrameCnt: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Method for adjusting the number of frames in an Animation.</p>
+<p>parameters: newFrameCnt, the desired frame count for the Animation (int).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def changeFrameCnt(self, newFrameCnt: int):
+    &#34;&#34;&#34;
+    Method for adjusting the number of frames in an Animation.\n
+    parameters: newFrameCnt, the desired frame count for the Animation (int).
+    &#34;&#34;&#34;
+    self.viewable = newFrameCnt</code></pre>
+</details>
+</dd>
+<dt id="Animation.Animation.clear"><code class="name flex">
+<span>def <span class="ident">clear</span></span>(<span>self, *args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Method for clearing the animation.</p>
+<pre><code>set effected part's LEDs to off.
+</code></pre>
+<p>parameters: args -&gt; frame, layer, val (layer effect, val doesn't matter)</p>
+<pre><code>                frame, val (frame effect, val doesn't matter)
+                val (whole animation, val doesn't matter)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clear(self, *args):
+    &#34;&#34;&#34;
+    Method for clearing the animation.\n
+        set effected part&#39;s LEDs to off.\n
+    parameters: args -&gt; frame, layer, val (layer effect, val doesn&#39;t matter)\n
+                        frame, val (frame effect, val doesn&#39;t matter)
+                        val (whole animation, val doesn&#39;t matter)
+    &#34;&#34;&#34;
+    args = list(args)
+    args[-1] = 0
+    self.fill(args)</code></pre>
+</details>
+</dd>
+<dt id="Animation.Animation.fill"><code class="name flex">
+<span>def <span class="ident">fill</span></span>(<span>self, args: list)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Modular function for setting</p>
+<p>parameters: args -&gt; frame, layer, val (layer effect)</p>
+<pre><code>                frame, val (frame effect)
+                val (whole animation)
+
+val may be of the color dictionary or a specific value that has meaning
+    -2: random
+    -3: sequential
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fill(self, args:list):
+    &#34;&#34;&#34;
+    Modular function for setting\n
+    parameters: args -&gt; frame, layer, val (layer effect)\n
+                        frame, val (frame effect)
+                        val (whole animation)\n
+        val may be of the color dictionary or a specific value that has meaning
+            -2: random
+            -3: sequential
+    &#34;&#34;&#34;
+    #Choose frame length based on the parameter list.
+    frameLen = self.getNumFrames()
+    if len(args) &gt; 1:
+        frameLen = args[0]
+    
+    counter = 0
+
+    lower = frameLen if len(args) &gt; 1 else 0
+    upper = frameLen+1 if len(args) &gt; 1 else frameLen
+    for frame in range(lower, upper):
+        matrix = self.getFrame(frame)
+
+        #Choose layer count based on the parameter list.
+        layerCnt = matrix.getzlen()
+        if len(args) &gt; 2:
+            layerCnt = args[1]
+
+        lower = layerCnt if len(args) &gt; 2 else 0
+        upper = layerCnt+1 if len(args) &gt; 2 else layerCnt
+        for layer in range(lower, upper):
+            for y in range(matrix.getylen()):
+                for x in range(matrix.getxlen()):
+                    #Choose method of filling based on specialized parameter values.
+                    #-1 means no color has been selected (bad state).
+                    if args[-1] == -2:
+                        matrix.setVal(x, y, layer, random.choice(list(HexColors.values())))
+                    
+                    elif args[-1] == -3:
+                        matrix.setVal(x, y, layer, list(HexColors.values())[counter])
+                        
+                        #Reset the counter when it hits max.
+                        if counter &lt; len(list(HexColors.values())) - 1:
+                            counter += 1
+                        else:
+                            counter = 0
+                    
+                    elif args[-1] &gt;= 0:
+                        matrix.setVal(x, y, layer, args[-1])</code></pre>
+</details>
+</dd>
+<dt id="Animation.Animation.getFrame"><code class="name flex">
+<span>def <span class="ident">getFrame</span></span>(<span>self, frame: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Method for getting a frame from the Animation.</p>
+<p>parameters: frame, the frame of interest (int).</p>
+<p>returns: matrix, the Matrix at the given frame (Matrix).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getFrame(self, frame: int):
+    &#34;&#34;&#34;
+    Method for getting a frame from the Animation.\n
+    parameters: frame, the frame of interest (int).\n
+    returns: matrix, the Matrix at the given frame (Matrix).
+    &#34;&#34;&#34;
+    return self.animation[frame]</code></pre>
+</details>
+</dd>
+<dt id="Animation.Animation.getNumFrames"><code class="name flex">
+<span>def <span class="ident">getNumFrames</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Method for getting number of frames.</p>
+<p>returns: viewable, the effective number of available frames an animation has (int).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getNumFrames(self):
+    &#34;&#34;&#34;
+    Method for getting number of frames.\n
+    returns: viewable, the effective number of available frames an animation has (int).
+    &#34;&#34;&#34;
+    return self.viewable</code></pre>
+</details>
+</dd>
+<dt id="Animation.Animation.getSpeed"><code class="name flex">
+<span>def <span class="ident">getSpeed</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Method for getting the Animation's speed.</p>
+<p>returns: speed, the Animations current speed (int).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSpeed(self):
+    &#34;&#34;&#34;
+    Method for getting the Animation&#39;s speed.\n
+    returns: speed, the Animations current speed (int).
+    &#34;&#34;&#34;
+    return self.speed</code></pre>
+</details>
+</dd>
+<dt id="Animation.Animation.rand"><code class="name flex">
+<span>def <span class="ident">rand</span></span>(<span>self, *args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Customized method for adding random colors.</p>
+<pre><code>set effected part to random color values.
+</code></pre>
+<p>parameters: args -&gt; frame, layer, val (layer effect, val doesn't matter)</p>
+<pre><code>                frame, val (frame effect, val doesn't matter)
+                val (whole animation, val doesn't matter)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rand(self, *args):
+    &#34;&#34;&#34; 
+    Customized method for adding random colors.\n
+        set effected part to random color values.\n
+    parameters: args -&gt; frame, layer, val (layer effect, val doesn&#39;t matter)\n
+                        frame, val (frame effect, val doesn&#39;t matter)
+                        val (whole animation, val doesn&#39;t matter)
+    &#34;&#34;&#34;
+    args = list(args)
+
+    #give special arguement value, unreachable otherwise.
+    args[-1] = -2
+
+    self.fill(args)</code></pre>
+</details>
+</dd>
+<dt id="Animation.Animation.seq"><code class="name flex">
+<span>def <span class="ident">seq</span></span>(<span>self, *args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Making sequential colors on animation.</p>
+<pre><code>set effected part to colors in a sequential order.
+</code></pre>
+<p>parameters: args -&gt; frame, layer, val (layer effect, val doesn't matter)</p>
+<pre><code>                frame, val (frame effect, val doesn't matter)
+                val (whole animation, val doesn't matter)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def seq(self, *args):
+    &#34;&#34;&#34; 
+    Making sequential colors on animation.\n
+        set effected part to colors in a sequential order.\n
+    parameters: args -&gt; frame, layer, val (layer effect, val doesn&#39;t matter)\n
+                        frame, val (frame effect, val doesn&#39;t matter)
+                        val (whole animation, val doesn&#39;t matter)
+    &#34;&#34;&#34;
+    args = list(args)
+
+    #give special arguement value, unreachable otherwise.
+    args[-1] = -3
+
+    self.fill(args)</code></pre>
+</details>
+</dd>
+<dt id="Animation.Animation.setFrame"><code class="name flex">
+<span>def <span class="ident">setFrame</span></span>(<span>self, frame: int, matrix: Matrix.LEDMatrix)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Method for adjusting the number of frames.</p>
+<p>parameters: frame, the matrix to edit (int).</p>
+<pre><code>        matrix, the matrix to replace the current matrix with (Matrix).
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setFrame(self, frame: int, matrix: LEDMatrix):
+    &#34;&#34;&#34;
+    Method for adjusting the number of frames.\n
+    parameters: frame, the matrix to edit (int).\n
+                matrix, the matrix to replace the current matrix with (Matrix).
+    &#34;&#34;&#34;
+    self.animation[frame] = matrix</code></pre>
+</details>
+</dd>
+<dt id="Animation.Animation.setSpeed"><code class="name flex">
+<span>def <span class="ident">setSpeed</span></span>(<span>self, speed: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Method for changing the speed of an animation.</p>
+<p>parameters: speed, the speed to run the animation at (in fps, int).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setSpeed(self, speed: int):
+    &#34;&#34;&#34;
+    Method for changing the speed of an animation.\n
+    parameters: speed, the speed to run the animation at (in fps, int).
+    &#34;&#34;&#34;
+    self.speed = speed</code></pre>
+</details>
+</dd>
+<dt id="Animation.Animation.solid"><code class="name flex">
+<span>def <span class="ident">solid</span></span>(<span>self, *args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Custom method for adding solid color.</p>
+<pre><code>set effected part to the decided color.
+</code></pre>
+<p>parameters: args -&gt; frame, layer, color (layer effect)</p>
+<pre><code>                frame, color (frame effect)
+                color (whole animation)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def solid(self, *args):
+    &#34;&#34;&#34;
+    Custom method for adding solid color.\n
+        set effected part to the decided color.\n
+    parameters: args -&gt; frame, layer, color (layer effect)\n
+                        frame, color (frame effect)
+                        color (whole animation)
+    &#34;&#34;&#34;
+    self.fill(list(args))</code></pre>
+</details>
+</dd>
+<dt id="Animation.Animation.toString"><code class="name flex">
+<span>def <span class="ident">toString</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Intelligent stringification of the class.</p>
+<pre><code>Shows frame by frame of the Matrices which are layer by layer.
+</code></pre>
+<p>returns: outStr, the out come of the work (string).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def toString(self):
+    &#34;&#34;&#34;
+    Intelligent stringification of the class.\n
+        Shows frame by frame of the Matrices which are layer by layer.\n
+    returns: outStr, the out come of the work (string).
+    &#34;&#34;&#34;
+    outStr = &#34;&#34;
+
+    for frame in range(self.viewable):
+        outStr += self.animation[frame].toString()
+        if frame &lt; self.viewable - 1:
+            outStr += &#39;&#39;.join([&#39;-&#39; for i  in range(4 * (self.animation[frame].getxlen()-1) + 1)])
+            outStr += &#34;\n&#34;
+    
+    return outStr</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="Animation.Animation" href="#Animation.Animation">Animation</a></code></h4>
+<ul class="two-column">
+<li><code><a title="Animation.Animation.changeFrameCnt" href="#Animation.Animation.changeFrameCnt">changeFrameCnt</a></code></li>
+<li><code><a title="Animation.Animation.clear" href="#Animation.Animation.clear">clear</a></code></li>
+<li><code><a title="Animation.Animation.fill" href="#Animation.Animation.fill">fill</a></code></li>
+<li><code><a title="Animation.Animation.getFrame" href="#Animation.Animation.getFrame">getFrame</a></code></li>
+<li><code><a title="Animation.Animation.getNumFrames" href="#Animation.Animation.getNumFrames">getNumFrames</a></code></li>
+<li><code><a title="Animation.Animation.getSpeed" href="#Animation.Animation.getSpeed">getSpeed</a></code></li>
+<li><code><a title="Animation.Animation.rand" href="#Animation.Animation.rand">rand</a></code></li>
+<li><code><a title="Animation.Animation.seq" href="#Animation.Animation.seq">seq</a></code></li>
+<li><code><a title="Animation.Animation.setFrame" href="#Animation.Animation.setFrame">setFrame</a></code></li>
+<li><code><a title="Animation.Animation.setSpeed" href="#Animation.Animation.setSpeed">setSpeed</a></code></li>
+<li><code><a title="Animation.Animation.solid" href="#Animation.Animation.solid">solid</a></code></li>
+<li><code><a title="Animation.Animation.toString" href="#Animation.Animation.toString">toString</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
