@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
 <title>MultiWindow API documentation</title>
-<meta name="description" content="Author: John Burns …" />
+<meta name="description" content="Author: John Burns ï¿½" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -19,6 +19,7 @@
 <main>
 <article id="content">
 <header>
+   <a href="index.html">Home Page</a>
 <h1 class="title">Module <code>MultiWindow</code></h1>
 </header>
 <section id="section-intro">
@@ -516,7 +517,7 @@ class MultiWindow:
 <dl>
 <dt id="MultiWindow.MultiWindow"><code class="flex name class">
 <span>class <span class="ident">MultiWindow</span></span>
-<span>(</span><span>master: tkinter.Tk)</span>
+<span>(</span><span>master:ï¿½tkinter.Tk)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>A class that sets up the visualizer multiwindow.</p>
@@ -1107,7 +1108,7 @@ to the arduino (Submit)</p></div>
 </details>
 </dd>
 <dt id="MultiWindow.MultiWindow.choiceLambda"><code class="name flex">
-<span>def <span class="ident">choiceLambda</span></span>(<span>self, num: int)</span>
+<span>def <span class="ident">choiceLambda</span></span>(<span>self, num:ï¿½int)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>function handle generator. This allows the buttons to use a command with a numeric input.</p>
@@ -1127,7 +1128,7 @@ to the arduino (Submit)</p></div>
 </details>
 </dd>
 <dt id="MultiWindow.MultiWindow.displayChoice"><code class="name flex">
-<span>def <span class="ident">displayChoice</span></span>(<span>self, num: int)</span>
+<span>def <span class="ident">displayChoice</span></span>(<span>self, num:ï¿½int)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Let the user know what they did as well as let them know how to continue.</p>
@@ -1178,7 +1179,7 @@ to the arduino (Submit)</p></div>
 </details>
 </dd>
 <dt id="MultiWindow.MultiWindow.findPort"><code class="name flex">
-<span>def <span class="ident">findPort</span></span>(<span>self, listOfComs: list)</span>
+<span>def <span class="ident">findPort</span></span>(<span>self, listOfComs:ï¿½list)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>update the port and get the ports. Verbose mode is activated if a comport was chosen.</p>
@@ -1255,7 +1256,7 @@ format of the parameters is: text (string), lo (int), hi (int), variable (needs 
 </details>
 </dd>
 <dt id="MultiWindow.MultiWindow.selAct"><code class="name flex">
-<span>def <span class="ident">selAct</span></span>(<span>self, selected: int)</span>
+<span>def <span class="ident">selAct</span></span>(<span>self, selected:ï¿½int)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Very similar to the above method however it had a fundemental difference. One is that
@@ -1333,7 +1334,7 @@ changes, change the slider values to those animation dependent variables.</p>
 </details>
 </dd>
 <dt id="MultiWindow.MultiWindow.selAnimAct"><code class="name flex">
-<span>def <span class="ident">selAnimAct</span></span>(<span>self, animSelected: int)</span>
+<span>def <span class="ident">selAnimAct</span></span>(<span>self, animSelected:ï¿½int)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Definition of what happens when an animation is selected. It resets the sliders to the values they were when editing that
@@ -1375,7 +1376,7 @@ animation as well as changes the btn layer to the layer corresponding to the sli
 </details>
 </dd>
 <dt id="MultiWindow.MultiWindow.selectActLam"><code class="name flex">
-<span>def <span class="ident">selectActLam</span></span>(<span>self, animSelected: int)</span>
+<span>def <span class="ident">selectActLam</span></span>(<span>self, animSelected:ï¿½int)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>function handle, allows multiple buttons to have the same function with slightly different (preset) values.</p>
@@ -1397,7 +1398,7 @@ animation as well as changes the btn layer to the layer corresponding to the sli
 </details>
 </dd>
 <dt id="MultiWindow.MultiWindow.sendAnimationsLam"><code class="name flex">
-<span>def <span class="ident">sendAnimationsLam</span></span>(<span>self, animations: list)</span>
+<span>def <span class="ident">sendAnimationsLam</span></span>(<span>self, animations:ï¿½list)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>function handle generator. This allows one function to control multiple events via a parameter.</p>
@@ -1417,7 +1418,7 @@ animation as well as changes the btn layer to the layer corresponding to the sli
 </details>
 </dd>
 <dt id="MultiWindow.MultiWindow.setLayer"><code class="name flex">
-<span>def <span class="ident">setLayer</span></span>(<span>self, chosenAnimation: tkinter.IntVar, frameNum: int)</span>
+<span>def <span class="ident">setLayer</span></span>(<span>self, chosenAnimation:ï¿½tkinter.IntVar, frameNum:ï¿½int)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Create a new layer based on the chosen values.</p>
@@ -1442,7 +1443,7 @@ animation as well as changes the btn layer to the layer corresponding to the sli
 </details>
 </dd>
 <dt id="MultiWindow.MultiWindow.setupActionFrame"><code class="name flex">
-<span>def <span class="ident">setupActionFrame</span></span>(<span>self, actionFrame: tkinter.Frame)</span>
+<span>def <span class="ident">setupActionFrame</span></span>(<span>self, actionFrame:ï¿½tkinter.Frame)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Sets up the frame in the secondary window where the user makes all the edits.</p>
